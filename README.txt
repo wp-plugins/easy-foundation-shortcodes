@@ -6,6 +6,7 @@ Requires at least: 3.0
 Tested up to: 3.6.1
 Stable tag: 1.0
 License: GPLv2 or later
+
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 Easy Foundation Shortcode enable you to add Zurb Foundation 4.0 styles in your pages, post and custom post in simplest manner.
