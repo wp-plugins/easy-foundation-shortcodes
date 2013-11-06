@@ -20,6 +20,7 @@ Want to implement responsive tabs to your pages, check this [Easy Responsive Tab
 
 = For best results use with Zurb Zurb Foundation 4.0 responsive theme =
 
+
 = Features: =
 
 * simplest zurb foundation style plugin ever.
