@@ -33,6 +33,7 @@ Want to implement responsive tabs to your pages, check this [Easy Responsive Tab
 * Now you can use js file from CDN or disable the plugin js.
 * You can use your own css file by disabling the plugin css, which gives you more flexibility over styling.
 
+[Easy Foundation Shortcode Demo](http://demo.oscitasthemes.com/efs/)
 
 Easy Foundation Shortcode provides following styles
 
