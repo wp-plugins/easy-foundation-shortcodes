@@ -21,7 +21,7 @@ Looking for parallax slider, check this [Easy Wordpress Parallax Slider](http://
 
 Want to implement responsive tabs to your pages, check this [Easy Responsive Tabs](http://wordpress.org/plugins/easy-responsive-tabs/)
 
-= For best results use with Zurb Zurb Foundation 4.0 responsive theme =
+= For best results use with Zurb Foundation 4.0 responsive theme =
 
 = Features: =
 
