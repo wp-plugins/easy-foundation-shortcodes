@@ -9,9 +9,9 @@ function osc_theme_efs_panel($atts, $content = null) {
     $content = str_replace("]<br />", ']', $content);
 
     $content = str_replace("<br />\n[", '[', $content);
-    if($type && $type=='on'){
-        $type='radius';
-    };
+//    if($type && $type=='on'){
+//        $type='radius';
+//    };
     $result = '<div class="panel ' . $style . ' ' . $type . ' ' .$class . '">';
     $result .= do_shortcode($content);
     $result .= '</div>';

@@ -70,11 +70,14 @@ function create_oscitas_efs_panel(){
                 // defines the options and their default values
                 // again, this is not the most elegant way to do this
                 // but well, this gets the job done nonetheless
-                var cusclass='';
+                var cusclass='',type='';
                 if(table.find('#oscitas-panel-class').val()!=''){
                     cusclass= ' class="'+table.find('#oscitas-panel-class').val()+'"';
                 }
-                var shortcode = '[efspanel style="'+table.find('#oscitas-panel-type').val()+ '" type="'+table.find('#oscitas-panel-radius').val()+ '"'+cusclass+']';
+                if(table.find('#oscitas-panel-radius').prop('checked')==true){
+                    type='radius';
+                }
+                var shortcode = '[efspanel style="'+table.find('#oscitas-panel-type').val()+ '" type="'+type+ '"'+cusclass+']';
 
                 shortcode += '<br/>[efspanel-header]<br/>Heading goes here<br/>[/efspanel-header]';
 

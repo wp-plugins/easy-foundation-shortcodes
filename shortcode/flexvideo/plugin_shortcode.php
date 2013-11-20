@@ -19,11 +19,11 @@ function osc_theme_efs_flexvideo($params, $content = null) {
     $out = '';
     $content = str_replace("<br />", '', $content);
     $content = str_replace("<br />\n", '', $content);
-    if($type=='vimeo'){
-        $type='vimeo';
-    }else{
-        $type='';
-    }
+//    if($type=='vimeo'){
+//        $type='vimeo';
+//    }else{
+//        $type='';
+//    }
     if($allowfullscreen=='yes'){
         $allowfullscreen='true';
     }else{
@@ -34,7 +34,8 @@ function osc_theme_efs_flexvideo($params, $content = null) {
     }else{
         $widescreen='';
     }
-    $out = '<div class="flex-video ' . $type . ' ' . $class . ' '.$widescreen.'"><iframe width="'.$width.'" height="'.$height.'" src="'.$url.'" allowfullscreen="'.$allowfullscreen.'"></iframe></div>';
+        $out = '<div class="flex-video ' . $type . ' ' . $class . ' '.$widescreen.'"><iframe width="'.$width.'" height="'.$height.'" src="'.$url.'" allowfullscreen="'.$allowfullscreen.'"></iframe></div>';
+
     return $out;
 }
 

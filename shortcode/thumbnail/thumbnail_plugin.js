@@ -59,7 +59,7 @@ function create_oscitas_efs_thumbnail(){
 		</div>';
     jQuery(form).dialog({
         dialogClass : 'wp-dialog osc-dialog',
-        model:true,
+//        modal:true,
         height:'auto',
         width:400,
         title:'Responsive Image Shortcode',
@@ -68,7 +68,8 @@ function create_oscitas_efs_thumbnail(){
             var table = content.find('table');
 
             content.find('.upload_image_button').click(function() {
-                jQuery('.fancybox-overlay').css('z-index',100);
+//                jQuery(form).dialog({modal:false});
+                jQuery('.ui-dialog').css('z-index',100);
                 jQuery('html').addClass('Image');
                 formfield = jQuery(this).prev().attr('id');
                 tb_show('', 'media-upload.php?type=image&amp;TB_iframe=true');
