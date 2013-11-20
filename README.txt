@@ -80,3 +80,14 @@ Now you can see the few new buttons in the TinyMCE Editor in post and pages, use
 It's that simple ... just what the name suggests
 
 
+== Changelog ==
+
+
+= 1.1.0 =
+
+* [Fixed] Panels radius class issue fixed.
+* [Fixed] Four Columns issue fixed.
+* [Fixed] Fixed some typos :-).
+* [Fixed] Large Screen Tabs issues are fixed.
+* [Fixed] Extra div removed to fix the Thumbnails Shortcode.
+

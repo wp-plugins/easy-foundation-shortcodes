@@ -103,7 +103,7 @@ function create_oscitas_dropdown(){
 		</div>';
     jQuery(form).dialog({
         dialogClass : 'wp-dialog osc-dialog',
-        model:true,
+        modal:true,
         height:'auto',
         width:1170,
         title : 'Button Dropdown Shortcode',
@@ -119,18 +119,7 @@ function create_oscitas_dropdown(){
     jQuery('.osc_remove_dditem').live('click',function(){
         jQuery(this).parent().parent().remove();
     })
-//    jQuery('.osc_type_change').live('change',function(){
-//        var par=jQuery(this).parent();
-//        var item=jQuery(this);
-//        var val=item.find('.oscitas-dropdownitem-type').val();
-//        if(val=='divider'){
-//            jQuery(par).find('.osc_hide').hide();
-//            item.attr('colspan',4);
-//        } else{
-//            jQuery(par).find('.osc_hide').show();
-//            item.attr('colspan',0);
-//        }
-//    })
+
     // handles the click event of the submit button
             content.find('#oscitas-dropdown-submit').click(function(){
         var split;

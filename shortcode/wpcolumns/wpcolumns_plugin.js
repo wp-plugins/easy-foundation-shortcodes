@@ -43,31 +43,31 @@ function create_oscitas_efs_wpcolumns(){
 				</select><br />\
 				</td>\
 			</tr>\
-                        	<tr id="wptwo" style="display:none;">\
+                        <tr id="wptwo" style="display:none;">\
 				<th><label for="oscitas-two-columns">2 column division</label></th>\
 				<td><select name="type" id="oscitas-two-columns" class="osc-change-col">\
 					<option value="6$6">1/2-1/2</option>\
 					<option value="4$8">1/3-2/3</option>\
-                                        <option value="8$3">2/3-1/3</option>\
-                                        <option value="3$9">1/4-3/4</option>\
-                                        <option value="9$3">3/4-1/4</option>\
+                    <option value="8$3">2/3-1/3</option>\
+                    <option value="3$9">1/4-3/4</option>\
+                    <option value="9$3">3/4-1/4</option>\
 				</select> For Large Screen<br />\
 				</td>\
 			</tr>\
 			<tr id="wpthree" style="display:none;">\
 				<th><label for="oscitas-three-columns">3 column division</label></th>\
 				<td><select name="type" id="oscitas-three-columns" class="osc-change-col">\
-                                        <option value="4$4$4">1/3-1/3-1/3</option>\
+                    <option value="4$4$4">1/3-1/3-1/3</option>\
 					<option value="3$6$3">1/4-2/4-1/4</option>\
 					<option value="3$3$6">1/4-1/4-2/4</option>\
-                                        <option value="6$3$3">2/4-1/4-1/4</option>\
+                    <option value="6$3$3">2/4-1/4-1/4</option>\
 				</select> For Large Screen<br />\
 			</tr>\
-                        <tr id="">\
-                        <th><label for="append_column_table">Column Specification</label></th>\
-                        <td id="append_column_table"></td>\
-                        </tr>\
-                        <tr>\
+            <tr id="">\
+            <th><label for="append_column_table">Column Specification</label></th>\
+            <td id="append_column_table"></td>\
+            </tr>\
+            <tr>\
 				<th><label for="oscitas-column-class">Custom Class:</label></th>\
 				<td><input type="text" name="line" id="oscitas-column-class" value=""/>\
 				</td>\
@@ -190,9 +190,7 @@ function create_oscitas_efs_wpcolumns(){
                     jQuery("#wpthree").show();
                 }
                 else{
-                    jQuery("#wptwo").  wp_enqueue_style('thickbox');
-        wp_enqueue_script('media-upload');
-        wp_enqueue_script('thickbox');hide();
+                    jQuery("#wptwo").hide();
                     jQuery("#wpthree").hide();
 
                 }

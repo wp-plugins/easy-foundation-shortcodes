@@ -59,7 +59,7 @@ function create_oscitas_efs_flexvideo(){
                 <td><input type="text" name="oscitas_form_flexvideo_height" id="oscitas-form-flexvideo-height" value="315" /> </td>\
                 </tr>\
                 <tr>\
-                <th>Widescrren:</th>\
+                <th>Widescreen:</th>\
                 <td><input type="checkbox" name="oscitas_form_flexvideo_widescreen" id="oscitas-form-flexvideo-widescreen" value="yes" /><br/><span style="font-size: 10px;">(Will give the player a widescreen aspect ratio.)</span></td>\
                 </tr>\
                 <tr>\

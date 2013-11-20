@@ -15,7 +15,7 @@ function osc_theme_efs_tabs($params, $content = null) {
     $_oscitas_tabs[$id] = array();
     $_oscitas_tabs['current_id'] = count($_oscitas_tabs)-1;
     do_shortcode($content);
-    $scontent = '<div class="section-container auto" data-section id="oscitas-efs-tabs-' . $id .'">';
+    $scontent = '<div class="section-container tabs" data-section="tabs" id="oscitas-efs-tabs-' . $id .'">';
     if(isset($_oscitas_tabs[$id]['tabs']) && is_array($_oscitas_tabs[$id]['tabs']) && isset($_oscitas_tabs[$id]['panes']) && is_array($_oscitas_tabs[$id]['panes'])){
         foreach($_oscitas_tabs[$id]['tabs'] as $key=>$tab){
             $scontent .=$tab.$_oscitas_tabs[$id]['panes'][$key];
