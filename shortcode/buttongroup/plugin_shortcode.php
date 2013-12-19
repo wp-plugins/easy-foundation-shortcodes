@@ -28,7 +28,7 @@ function osc_theme_efs_buttongroupbutton($params, $content = null) {
         'link' => '',
         'btnstyle' => '',
     ), $params));
-    print_r('sdfdsfsdfdsfdsfd-----');
+
     $out = '';
     $content = str_replace("<br />", '', $content);
     $content = str_replace("<br />\n", '', $content);

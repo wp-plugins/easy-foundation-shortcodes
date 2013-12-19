@@ -25,11 +25,11 @@
         <b>CDN Links for foundation.js, you can use any of these</b>
         <ul>
             <li>
-                //cdn.jsdelivr.net/foundation/4.3.2/js/foundation.min.js
+                //cdn.jsdelivr.net/foundation/5.0.2/js/foundation.min.js
             </li>
-            <li>
-                //cdn.jsdelivr.net/foundation/4.3.2/js/foundation.min.js
-            </li>
+<!--            <li>-->
+<!--                //cdn.jsdelivr.net/foundation/4.3.2/js/foundation.min.js-->
+<!--            </li>-->
         </ul>
 
     </form>
