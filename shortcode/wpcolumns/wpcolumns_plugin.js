@@ -95,6 +95,7 @@ function create_oscitas_efs_wpcolumns(){
 
                 var option={
                     'lg':'Large Screen',
+                    'md':'Medium Screen',
                     'sm': 'Small Screen'
                 }
                 ele+= '<table id="appended" class="tb_multiple_column"><thead><tr><th>Screen</th>';
@@ -113,7 +114,7 @@ function create_oscitas_efs_wpcolumns(){
                     for(var i=1;i<=col;i++){
                         sm='<select name="'+index+'['+i+']" id="'+index+i+'">';
                         for( e=1;e<=12;e++){
-                            if(index=='lg'){
+                            if(index=='lg' || index=='md'){
 
                                 selcol=12/col;
                                 if(e==selcol){
@@ -204,7 +205,8 @@ function create_oscitas_efs_wpcolumns(){
             })
             var arr={
                 1:'lg',
-                2:'sm'
+                2:'md',
+                3:'sm'
             };
 
 
@@ -249,7 +251,7 @@ function create_oscitas_efs_wpcolumns(){
                 // defines the options and their default values
                 // again, this is not the most elegant way to do this
                 // but well, this gets the job done nonetheless
-                var a_md=[],a_sm=[],a_xs=[],a_lg=[],j=0,a_md_off=[],a_sm_off=[],a_xs_off=[],a_lg_off=[],a_md_hide=[],a_sm_hide=[],a_xs_hide=[],a_lg_hide=[],c_lg=[],c_sm=[],sm='',md='',xs='',smoff='',mdoff='',xsoff='',lgoff='',smhide='',mdhide='',xshide='',lghide='';
+                var a_md=[],a_sm=[],a_xs=[],a_lg=[],j=0,a_md_off=[],a_sm_off=[],a_xs_off=[],a_lg_off=[],a_md_hide=[],a_sm_hide=[],a_xs_hide=[],a_lg_hide=[],c_lg=[],c_sm=[],c_md=[],sm='',md='',xs='',smoff='',mdoff='',xsoff='',lgoff='',smhide='',mdhide='',xshide='',lghide='';
 
                 var noOfColumns = jQuery('#oscitas-no-of-wpcolumns').val();
                 var shortcode = '';
@@ -261,11 +263,26 @@ function create_oscitas_efs_wpcolumns(){
                 for(var i=1;i<=parseInt(noOfColumns);i++){
 
                     a_sm[i] = jQuery('#sm'+i).val();
+                    a_md[i] = jQuery('#md'+i).val();
                     a_lg[i] = jQuery('#lg'+i).val();
                     a_sm_off[i] = jQuery('#smoff'+i).val();
+                    a_md_off[i] = jQuery('#mdoff'+i).val();
                     a_lg_off[i] = jQuery('#lgoff'+i).val();
-                    c_lg[i] = jQuery('#lgcenteredsmall'+i).val();
-                    c_sm[i] = jQuery('#smcenteredsmall'+i).val();
+                    if(jQuery('#lgcenteredsmall'+i).prop('checked')==true){
+                        c_lg[i] = jQuery('#lgcenteredsmall'+i).val();
+                    }else{
+                       c_lg[i] ='';
+                    }
+                    if(jQuery('#mdcenteredsmall'+i).prop('checked')==true){
+                        c_md[i]= jQuery('#mdcenteredsmall'+i).val();
+                    }else{
+                       c_md[i]= '';
+                    }
+                    if(jQuery('#smcenteredsmall'+i).prop('checked')==true){
+                        c_sm[i]= jQuery('#smcenteredsmall'+i).val();
+                    }else{
+                        c_sm[i]= '';
+                    }
 
                     if(a_sm[i]!=12){
                         sm=' sm="'+a_sm[i]+'"';
@@ -273,14 +290,20 @@ function create_oscitas_efs_wpcolumns(){
                         sm='';
                     }
 
-                    if(a_sm_off[i]!=0){
+                    if(a_sm_off[i]!=''){
                         smoff=' smoff="'+a_sm_off[i]+'"';
                     }
                     else{
                         smoff='';
                     }
+                    if(a_md_off[i]!=''){
+                        mdoff=' mdoff="'+a_md_off[i]+'"';
+                    }
+                    else{
+                        mdoff='';
+                    }
 
-                    if(a_lg_off[i]!=0){
+                    if(a_lg_off[i]!=''){
                         lgoff=' lgoff="'+a_lg_off[i]+'"';
                     }
                     else{
@@ -288,9 +311,9 @@ function create_oscitas_efs_wpcolumns(){
                     }
 
                     if(noOfColumns==1){
-                        shortcode += '<br/>[efscolumn lg="'+a_lg[i]+'"'+sm+smoff+lgoff+' centeredsmall="'+c_sm[i]+'"  centeredlarge="'+c_lg[i]+'"]<br/>text<br/>[/efscolumn]';
+                        shortcode += '<br/>[efscolumn lg="'+a_lg[i]+'" md="'+a_md[i]+'"'+sm+smoff+mdoff+lgoff+' centeredsmall="'+c_sm[i]+'" centeredmedium="'+c_md[i]+'"  centeredlarge="'+c_lg[i]+'"]<br/>text<br/>[/efscolumn]';
                     }else{
-                        shortcode += '<br/>[efscolumn lg="'+a_lg[i]+'"'+sm+smoff+lgoff+' ]<br/>text<br/>[/efscolumn]';
+                        shortcode += '<br/>[efscolumn lg="'+a_lg[i]+'" md="'+a_md[i]+'"'+sm+md+smoff+mdoff+lgoff+' ]<br/>text<br/>[/efscolumn]';
                     }
                 }
 

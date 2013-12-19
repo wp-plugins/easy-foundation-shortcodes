@@ -9,11 +9,11 @@ License: GPLv2 or later
 
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Easy Foundation Shortcode enable you to add Zurb Foundation 4.0 styles in your pages, post and custom post in simplest manner.
+Easy Foundation Shortcode enable you to add Zurb Foundation 5.0 styles in your pages, post and custom post in simplest manner.
 
 == Description ==
 
-Easy Foundation Shortcode is Zurb Foundation 4.0 compatible plugin which add icons to wordpress editor (tinyMCE Shortcode Buttons) and one can add foundation style to their website just by clicking on tinyMCE  editor icon.
+Easy Foundation Shortcode is Zurb Foundation 5.0 compatible plugin which add icons to wordpress editor (tinyMCE Shortcode Buttons) and one can add foundation style to their website just by clicking on tinyMCE  editor icon.
 
 [Easy Foundation Shortcode Demo](http://demo.oscitasthemes.com/efs/)
 
@@ -21,7 +21,7 @@ Looking for parallax slider, check this [Easy Wordpress Parallax Slider](http://
 
 Want to implement responsive tabs to your pages, check this [Easy Responsive Tabs](http://wordpress.org/plugins/easy-responsive-tabs/)
 
-= For best results use with Zurb Foundation 4.0 responsive theme =
+= For best results use with Zurb Foundation 5.0 responsive theme =
 
 = Features: =
 
@@ -82,6 +82,10 @@ It's that simple ... just what the name suggests
 
 == Changelog ==
 
+
+= 1.2.0 =
+
+* [Update] Updated to Zurb Foundation 5.0.
 
 = 1.1.0 =
 

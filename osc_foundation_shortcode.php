@@ -4,7 +4,7 @@
   Plugin Name: Easy Foundation Shortcodes
   Plugin URI: http://www.oscitasthemes.com
   Description: Add Zurb Foundation styles to your theme by wordpress editor shortcode buttons.
-  Version: 1.1.0
+  Version: 1.2.0
   Author: oscitas
   Author URI: http://www.oscitasthemes.com
   License: Under the GPL v2 or later
@@ -27,7 +27,7 @@ function osc_efs_activate_plugin() {
     if (!$isSet) {
         // EFS_FOUNDATION_JS_LOCATION   '1' - for plugin file, '2' - don't user EFS files but use from other plugin or theme, '3' - to user CDN path
         update_option( 'EFS_FOUNDATION_JS_LOCATION', 1 );
-        update_option( 'EFS_FOUNDATION_JS_CDN_PATH', 'http://cdn.jsdelivr.net/foundation/4.3.2/js/foundation.min.js' );
+        update_option( 'EFS_FOUNDATION_JS_CDN_PATH', 'http://cdn.jsdelivr.net/foundation/5.0.2/js/foundation.min.js' );
 
         // EFS_FOUNDATION_CSS_LOCATION   '1' - for plugin file, '2' - don't user EFS files but use from other plugin or theme
         update_option( 'EFS_FOUNDATION_CSS_LOCATION', 1 );
@@ -72,7 +72,7 @@ function osc_efs_setting_page() {
         $css = $_POST['b_css'];
     } else {
         $js = get_option( 'EFS_FOUNDATION_JS_LOCATION', 1 );
-        $cdn = get_option( 'EFS_FOUNDATION_JS_CDN_PATH', 'http://cdn.jsdelivr.net/foundation/4.3.2/js/foundation.min.js' );
+        $cdn = get_option( 'EFS_FOUNDATION_JS_CDN_PATH', 'http://cdn.jsdelivr.net/foundation/5.0.2/js/foundation.min.js' );
         $css = get_option( 'EFS_FOUNDATION_CSS_LOCATION', 1 );
     }
     include 'efs_settings.php';
@@ -105,7 +105,7 @@ function osc_add_frontend_efs_scripts() {
     $isSet = get_option('EFS_CUSTOM_OPTION', '');
     if (!$isSet) {
         $js = get_option( 'EFS_FOUNDATION_JS_LOCATION', 1 );
-        $cdn = get_option( 'EFS_FOUNDATION_JS_CDN_PATH', 'http://cdn.jsdelivr.net/foundation/4.3.2/js/foundation.min.js' );
+        $cdn = get_option( 'EFS_FOUNDATION_JS_CDN_PATH', 'http://cdn.jsdelivr.net/foundation/5.0.2/js/foundation.min.js' );
         $css = get_option( 'EFS_FOUNDATION_CSS_LOCATION', 1 );
 
         if ($js == 1) {
@@ -117,6 +117,7 @@ function osc_add_frontend_efs_scripts() {
         }
         if ($css == 1) {
             wp_enqueue_style('foundation', plugins_url('/styles/foundation.min.css', __FILE__));
+            wp_enqueue_style('foundation', plugins_url('/styles/normalize.css', __FILE__));
            // wp_enqueue_style('foundation-app', plugins_url('/styles/app.css', __FILE__));
         }
     }

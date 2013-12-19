@@ -26,10 +26,13 @@ add_shortcode('efsrow', 'osc_theme_efs_row');
 function osc_theme_efs_column_shortcode($params, $content = null) {
     extract(shortcode_atts(array(
         'sm' => '',
+        'md' => '',
         'lg' => '',
         'centeredlarge' => '',
+        'centeredmedium' => '',
         'centeredsmall' => '',
         'smoff' => '',
+        'mdoff' => '',
         'lgoff' => '',
         'off'=>''
     ), $params));
@@ -44,6 +47,11 @@ function osc_theme_efs_column_shortcode($params, $content = null) {
     } else {
         $centeredsmall = '';
     }
+    if ($centeredmedium == 'yes') {
+        $centeredmedium = 'medium-centered';
+    } else {
+        $centeredmedium = '';
+    }
 
     $arr = array('sm');
     $classes = array();
@@ -54,19 +62,19 @@ function osc_theme_efs_column_shortcode($params, $content = null) {
             $classes[] = 'small-' . ${$aa};
         }
     }
-    $arr2 = array('smoff', 'lgoff');
+    $arr2 = array('smoff','mdoff', 'lgoff');
     foreach ($arr2 as $aa) {
         $nn = str_replace('off', '', $aa);
-        if (${$aa} == 0 || ${$aa} == '') {
+        if (${$aa} == '') {
             //$classes[] = '';
         } else {
-            $classes[] = ($nn=='sm'?'small':'large') . '-offset-' . ${$aa};
+            $classes[] = ($nn=='sm'?'small':($nn=='md'?'medium':'large')) . '-offset-' . ${$aa};
         }
     }
 //    if ($off != '') {
 //        $classes[] = 'col-lg-offset-'.$off;
 //    }
-    $result = '<div class="columns large-' . $lg . ' ' . implode(' ', $classes) . ' '.$centeredsmall. ' '.$centeredlarge.' ">';
+    $result = '<div class="columns medium-'.$md.' large-' . $lg . ' ' . implode(' ', $classes) . ' '.$centeredsmall. ' '.$centeredlarge.' '.$centeredmedium.'">';
     $result .= do_shortcode($content);
     $result .= '</div>';
 
