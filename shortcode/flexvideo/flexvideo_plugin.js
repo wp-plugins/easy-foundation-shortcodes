@@ -1,42 +1,20 @@
-/**
- * Created with JetBrains PhpStorm.
- * User: oscitas
- * Date: 25/10/13
- * Time: 5:27 PM
- * To change this template use File | Settings | File Templates.
- */
-(function() {
-    tinymce.create('tinymce.plugins.oscitasEFSflexvideo', {
-        init : function(ed, url) {
-            ed.addButton('oscitasefsflexvideo', {
-                title : 'Flex Video',
-                image : url+'/icon.png',
-                onclick : function() {
-                    create_oscitas_efs_flexvideo();
-                }
-            });
-        },
-        createControl : function(n, cm) {
-            return null;
-        },
-        getInfo : function() {
-            return {
-                longname : "Flex Video",
-                author : 'Oscitas Themes',
-                authorurl : 'http://www.oscitasthemes.com/',
-                infourl : 'http://www.oscitasthemes.com/',
-                version : "2.0.0"
-            };
-        }
-    });
-    tinymce.PluginManager.add('oscitasefsflexvideo', tinymce.plugins.oscitasEFSflexvideo);
-})();
+var efsflexvideo={
+    title:"Flex Video Shortcode",
+    id :'oscitas-form-efsflexvideo',
+    pluginName: 'efsflexvideo',
+    setRowColors:false
+};
 
-function create_oscitas_efs_flexvideo(){
-    if(jQuery('#oscitas-form-flexvideo').length){
-        jQuery('#oscitas-form-flexvideo').remove();
+(function() {
+    _efs_create_tinyMCE_options(efsflexvideo);
+})();
+function create_oscitas_efsflexvideo(pluginObj){
+    if(jQuery(pluginObj.hashId).length){
+        jQuery(pluginObj.hashId).remove();
     }
-    var form='<div id="oscitas-form-flexvideo">\
+    // creates a form to be displayed everytime the button is clicked
+    // you should achieve this using AJAX instead of direct html code like this
+    var form = jQuery('<div id="'+pluginObj.id+'" class="oscitas-container" title="'+pluginObj.title+'">\
             <table id="oscitas-table" class="form-table">\
             <tr>\
                 <th>Video Type</th>\
@@ -75,38 +53,32 @@ function create_oscitas_efs_flexvideo(){
             <p class="submit">\
 			<input type="button" id="oscitas-flexvideo-submit" class="button-primary" value="Insert Flex Video" name="submit" />\
 		    </p>\
-            </div>';
-    jQuery(form).dialog({
-        dialogClass : 'wp-dialog osc-dialog',
-        model:true,
-        height:'auto',
-        width:500,
-        title:'Flex Video Shortcode',
-        open:function(){
-            var content=jQuery(this);
-//            content.find('#oscitas-form-flexvideo-type').change(function(){
+            </div>');
+    form.appendTo('body').hide();
+    var table = form.find('table');
+//            form.find('#oscitas-form-flexvideo-type').change(function(){
 //                if(jQuery(this).val()=='button'){
-//                    content.find('#oscitas-form-pricingtable-show-link').hide();
+//                    form.find('#oscitas-form-pricingtable-show-link').hide();
 //                }else{
-//                    content.find('#oscitas-form-pricingtable-show-link').show();
+//                    form.find('#oscitas-form-pricingtable-show-link').show();
 //                }
 //            });
-            content.find('#oscitas-flexvideo-submit').click(function(){
+            form.find('#oscitas-flexvideo-submit').click(function(){
                 var allowfullscreen,widescreen,type,url,cusclass,width,height,shortcode='';
 
-                type=' type="'+content.find('#oscitas-form-flexvideo-type').val()+'"';
-                url=' url="'+content.find('#oscitas-form-flexvideo-url').val()+'"';
-                width=' width="'+content.find('#oscitas-form-flexvideo-width').val()+'"';
-                height=' height="'+content.find('#oscitas-form-flexvideo-height').val()+'"';
+                type=' type="'+form.find('#oscitas-form-flexvideo-type').val()+'"';
+                url=' url="'+form.find('#oscitas-form-flexvideo-url').val()+'"';
+                width=' width="'+form.find('#oscitas-form-flexvideo-width').val()+'"';
+                height=' height="'+form.find('#oscitas-form-flexvideo-height').val()+'"';
 
-                if(content.find('#oscitas-form-flexvideo-widescreen').val()=='yes'){
-                    widescreen=' widescreen="'+content.find('#oscitas-form-flexvideo-widescreen').val()+'"';
+                if(form.find('#oscitas-form-flexvideo-widescreen').val()=='yes'){
+                    widescreen=' widescreen="'+form.find('#oscitas-form-flexvideo-widescreen').val()+'"';
                 }
-                if(content.find('#oscitas-form-flexvideo-fullscreen').val()=='yes'){
-                    allowfullscreen=' allowfullscreen="'+content.find('#oscitas-form-flexvideo-fullscreen').val()+'"';
+                if(form.find('#oscitas-form-flexvideo-fullscreen').val()=='yes'){
+                    allowfullscreen=' allowfullscreen="'+form.find('#oscitas-form-flexvideo-fullscreen').val()+'"';
                 }
-                if(content.find('#oscitas-flexvideo-class').val()!=''){
-                    cusclass= ' class="'+content.find('#oscitas-flexvideo-class').val()+'"';
+                if(form.find('#oscitas-flexvideo-class').val()!=''){
+                    cusclass= ' class="'+form.find('#oscitas-flexvideo-class').val()+'"';
                 }
                 else{
                     cusclass='';
@@ -115,8 +87,6 @@ function create_oscitas_efs_flexvideo(){
 
                 // inserts the shortcode into the active editor
                 tinyMCE.activeEditor.execCommand('mceInsertContent', 0, shortcode);
-                content.dialog( "destroy" );
+                efs_close_dialogue(pluginObj.hashId);
             });
-        }
-    });
 }

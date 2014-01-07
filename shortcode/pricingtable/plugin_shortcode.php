@@ -15,7 +15,6 @@ function osc_theme_efs_pricingtable($params, $content =null) {
         'link' => '',
         'class' => ''
     ), $params));
-    $no_of_bullets=$bullets;
     $linktype=$type;
     $linkvalue=$link;
     $out = '';

@@ -1,37 +1,20 @@
-(function() {
-    tinymce.create('tinymce.plugins.oscitasEFSTooltip', {
-        init: function(ed, url) {
-            ed.addButton('oscitasefstooltip', {
-                title: 'Tooltip Shortcode',
-                image: url + '/icon.png',
-                onclick: function() {
-                    create_oscitas_efs_tooltip();
-                }
-            });
-        },
-        createControl: function(n, cm) {
-            return null;
-        },
-        getInfo: function() {
-            return {
-                longname: "Tooltip Shortcode",
-                author : 'Oscitas Themes',
-                authorurl : 'http://www.oscitasthemes.com/',
-                infourl : 'http://www.oscitasthemes.com/',
-                version : "2.0.0"
-            };
-        }
-    });
-    tinymce.PluginManager.add('oscitasefstooltip', tinymce.plugins.oscitasEFSTooltip);
-})();
+var efstooltip={
+    title:"Tooltip Shortcode",
+    id :'oscitas-form-efstooltip',
+    pluginName: 'efstooltip',
+    setRowColors:false
+};
 
-function create_oscitas_efs_tooltip(){
-    if(jQuery('#oscitas-form-tooltip').length){
-        jQuery('#oscitas-form-tooltip').remove();
+(function() {
+    _efs_create_tinyMCE_options(efstooltip);
+})();
+function create_oscitas_efstooltip(pluginObj){
+    if(jQuery(pluginObj.hashId).length){
+        jQuery(pluginObj.hashId).remove();
     }
     // creates a form to be displayed everytime the button is clicked
     // you should achieve this using AJAX instead of direct html code like this
-    var form ='<div id="oscitas-form-tooltip"><table id="oscitas-table" class="form-table">\
+    var form = jQuery('<div id="'+pluginObj.id+'" class="oscitas-container" title="'+pluginObj.title+'"><table id="oscitas-table" class="form-table">\
 			<tr>\
 				<th><label for="oscitas-tooltip-style">Tooltip Style:</label></th>\
 				<td><select name="type" id="oscitas-tooltip-style">\
@@ -75,66 +58,57 @@ function create_oscitas_efs_tooltip(){
 		<p class="submit">\
 			<input type="button" id="oscitas-tooltip-submit" class="button-primary" value="Insert Tooltip" name="submit" />\
 		</p>\
-		</div>';
-    jQuery(form).dialog({
-        dialogClass : 'wp-dialog osc-dialog',
-        model:true,
-        height:'auto',
-        width:400,
-        title:'Tooltip Shortcode',
-        open:function(){
-            var content=jQuery(this);
-            var table = content.find('table');
-            var colors = ['color', 'bgcolor'];
+		</div>');
+    form.appendTo('body').hide();
+    var table = form.find('table');
+    var colors = ['color', 'bgcolor'];
 
-            content.find('#oscitas-tooltip-type').change(function(){
-                if(jQuery(this).val()=='link'){
-                    table.find('#oscitas-tooltip-link-tr').show();
-                    table.find('#oscitas-tooltip-link').val('#');
-                } else{
-                    table.find('#oscitas-tooltip-link-tr').hide();
-                    table.find('#oscitas-tooltip-link').val('');
+    form.find('#oscitas-tooltip-type').change(function(){
+        if(jQuery(this).val()=='link'){
+            table.find('#oscitas-tooltip-link-tr').show();
+            table.find('#oscitas-tooltip-link').val('#');
+        } else{
+            table.find('#oscitas-tooltip-link-tr').hide();
+            table.find('#oscitas-tooltip-link').val('');
 
-                }
-                jQuery('#oscitas-table tr:visible:even').css('background', '#F0F0F0');
-                jQuery('#oscitas-table tr:visible:odd').css('background', '#DADADD');
-            })
-
-            // handles the click event of the submit button
-            content.find('#oscitas-tooltip-submit').click(function() {
-                // defines the options and their default values
-                // again, this is not the most elegant way to do this
-                // but well, this gets the job done nonetheless
-                var cusclass='';
-                if(table.find('#oscitas-tooltip-class').val()!=''){
-                    cusclass= ' class="'+table.find('#oscitas-tooltip-class').val()+'"';
-                }
-                var shortcode = '[efstooltip';
-                shortcode += ' type="' + table.find('#oscitas-tooltip-type').val();
-
-                shortcode += '" ';
-
-                shortcode += ' link="' + table.find('#oscitas-tooltip-link').val();
-
-                shortcode += '" ';
-                shortcode += ' tooltip="' + table.find('#oscitas-tooltip-text').val();
-
-                shortcode += '" ';
-                shortcode += ' style="' + table.find('#oscitas-tooltip-style').val();
-                shortcode += '"';
-                shortcode += cusclass;
-
-                shortcode += ']';
-                shortcode+= table.find('#oscitas-tooltip-link-text').val();
-                shortcode+='[/efstooltip]';
-
-                // inserts the shortcode into the active editor
-                tinyMCE.activeEditor.execCommand('mceInsertContent', 0, shortcode);
-
-                // closes fancybox
-                content.dialog( "destroy" );
-            });
         }
+        jQuery('#oscitas-table tr:visible:even').css('background', '#F0F0F0');
+        jQuery('#oscitas-table tr:visible:odd').css('background', '#DADADD');
+    })
+
+    // handles the click event of the submit button
+    form.find('#oscitas-tooltip-submit').click(function() {
+        // defines the options and their default values
+        // again, this is not the most elegant way to do this
+        // but well, this gets the job done nonetheless
+        var cusclass='';
+        if(table.find('#oscitas-tooltip-class').val()!=''){
+            cusclass= ' class="'+table.find('#oscitas-tooltip-class').val()+'"';
+        }
+        var shortcode = '[efstooltip';
+        shortcode += ' type="' + table.find('#oscitas-tooltip-type').val();
+
+        shortcode += '" ';
+
+        shortcode += ' link="' + table.find('#oscitas-tooltip-link').val();
+
+        shortcode += '" ';
+        shortcode += ' tooltip="' + table.find('#oscitas-tooltip-text').val();
+
+        shortcode += '" ';
+        shortcode += ' style="' + table.find('#oscitas-tooltip-style').val();
+        shortcode += '"';
+        shortcode += cusclass;
+
+        shortcode += ']';
+        shortcode+= table.find('#oscitas-tooltip-link-text').val();
+        shortcode+='[/efstooltip]';
+
+        // inserts the shortcode into the active editor
+        tinyMCE.activeEditor.execCommand('mceInsertContent', 0, shortcode);
+
+        // closes fancybox
+        efs_close_dialogue(pluginObj.hashId);
     });
 }
 

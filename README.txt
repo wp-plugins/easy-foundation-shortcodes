@@ -17,16 +17,14 @@ Easy Foundation Shortcode is Zurb Foundation 5.0 compatible plugin which add ico
 
 [Easy Foundation Shortcode Demo](http://demo.oscitasthemes.com/efs/)
 
-Looking for parallax slider, check this [Easy Wordpress Parallax Slider](http://wordpress.org/plugins/easy-wp-parallax-slider/)
-
-Want to implement responsive tabs to your pages, check this [Easy Responsive Tabs](http://wordpress.org/plugins/easy-responsive-tabs/)
+Looking for Bootstrap Shortcode Plugin, check this [Easy Bootstrap Shortcode](http://wordpress.org/plugins/easy-bootstrap-shortcodes/)
 
 = For best results use with Zurb Foundation 5.0 responsive theme =
 
 = Features: =
 
 * simplest zurb foundation style plugin ever.
-* Zurb Foundation 4.0 compatible.
+* Zurb Foundation 5.0 compatible.
 * No need to paste shortcode in editor.
 * Add icons to editor.
 * Shortcode added to editor by clicking on icon.
@@ -84,9 +82,12 @@ It's that simple ... just what the name suggests
 1. how it looks after installation
 2. different shortcode options this plugin provides
 
-
 == Changelog ==
 
+= 1.2.1 =
+
+* New TinyMCE Dropdown Menu button option.
+* CSS modification of Admin Edit CSS
 
 = 1.2.0 =
 

@@ -1,37 +1,20 @@
-(function() {
-    tinymce.create('tinymce.plugins.oscitasEFSLabels', {
-        init : function(ed, url) {
-            ed.addButton('oscitasefslabels', {
-                title : 'Label Shortcode',
-                image : url+'/icon.png',
-                onclick : function() {
-                    create_oscitas_efs_label();
-                }
-            });
-        },
-        createControl : function(n, cm) {
-            return null;
-        },
-        getInfo : function() {
-            return {
-                longname : "Label Shortcode",
-                author : 'Oscitas Themes',
-                authorurl : 'http://www.oscitasthemes.com/',
-                infourl : 'http://www.oscitasthemes.com/',
-                version : "2.0.0"
-            };
-        }
-    });
-    tinymce.PluginManager.add('oscitasefslabels', tinymce.plugins.oscitasEFSLabels);
-})();
+var efslabels={
+    title:"Label Shortcode",
+    id :'oscitas-form-efslabels',
+    pluginName: 'efslabels',
+    setRowColors:false
+};
 
-function create_oscitas_efs_label(){
-    if(jQuery('#oscitas-form-label').length){
-        jQuery('#oscitas-form-label').remove();
+(function() {
+    _efs_create_tinyMCE_options(efslabels);
+})();
+function create_oscitas_efslabels(pluginObj){
+    if(jQuery(pluginObj.hashId).length){
+        jQuery(pluginObj.hashId).remove();
     }
     // creates a form to be displayed everytime the button is clicked
     // you should achieve this using AJAX instead of direct html code like this
-    var form ='<div id="oscitas-form-label"><table id="oscitas-table" class="form-table">\
+    var form = jQuery('<div id="'+pluginObj.id+'" class="oscitas-container" title="'+pluginObj.title+'"><table id="oscitas-table" class="form-table">\
 			<tr>\
 				<th><label for="oscitas-label-type">Label Type:</label></th>\
 				<td><select name="type" id="oscitas-label-type">\
@@ -65,33 +48,24 @@ function create_oscitas_efs_label(){
 		<p class="submit">\
 			<input type="button" id="oscitas-label-submit" class="button-primary" value="Insert Label" name="submit" />\
 		</p>\
-		</div>';
-    jQuery(form).dialog({
-        dialogClass : 'wp-dialog osc-dialog',
-        model:true,
-        height:'auto',
-        width:600,
-        title:'Label Shortcode',
-        open:function(){
-            var content=jQuery(this);
-            var table = content.find('table');
-            // handles the click event of the submit button
-            content.find('#oscitas-label-submit').click(function(){
-                var cusclass='';
-                if(table.find('#oscitas-label-class').val()!=''){
-                    cusclass= ' class="'+table.find('#oscitas-label-class').val()+'"';
-                }
-                var shortcode = '[efslabel style="'+jQuery('#oscitas-label-style').val()+'" type="'+jQuery('#oscitas-label-type').val()+'"'+cusclass+']<br/>';
-                shortcode += jQuery('#oscitas-label-content').val()+'<br/>';
-                shortcode += '[/efslabel]';
-
-                // inserts the shortcode into the active editor
-                tinyMCE.activeEditor.execCommand('mceInsertContent', 0, shortcode);
-
-                // closes fancybox
-                content.dialog( "destroy" );
-            });
+		</div>');
+    form.appendTo('body').hide();
+    var table = form.find('table');
+    // handles the click event of the submit button
+    form.find('#oscitas-label-submit').click(function(){
+        var cusclass='';
+        if(table.find('#oscitas-label-class').val()!=''){
+            cusclass= ' class="'+table.find('#oscitas-label-class').val()+'"';
         }
+        var shortcode = '[efslabel style="'+jQuery('#oscitas-label-style').val()+'" type="'+jQuery('#oscitas-label-type').val()+'"'+cusclass+']<br/>';
+        shortcode += jQuery('#oscitas-label-content').val()+'<br/>';
+        shortcode += '[/efslabel]';
+
+        // inserts the shortcode into the active editor
+        tinyMCE.activeEditor.execCommand('mceInsertContent', 0, shortcode);
+
+        // closes fancybox
+        efs_close_dialogue(pluginObj.hashId);
     });
 }
 
