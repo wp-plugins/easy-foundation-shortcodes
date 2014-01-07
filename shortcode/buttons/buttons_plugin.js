@@ -1,37 +1,20 @@
-(function() {
-    tinymce.create('tinymce.plugins.oscitasEFSButtons', {
-        init : function(ed, url) {
-            ed.addButton('oscitasefsbuttons', {
-                title : 'Button Shortcode',
-                image : url+'/icon.png',
-                onclick : function() {
-                    create_oscitas_efs_button();
-                }
-            });
-        },
-        createControl : function(n, cm) {
-            return null;
-        },
-        getInfo : function() {
-            return {
-                longname : "Button Shortcode",
-                author : 'Oscitas Themes',
-                authorurl : 'http://www.oscitasthemes.com/',
-                infourl : 'http://www.oscitasthemes.com/',
-                version : "2.0.0"
-            };
-        }
-    });
-    tinymce.PluginManager.add('oscitasefsbuttons', tinymce.plugins.oscitasEFSButtons);
-})();
+var efsbuttons={
+    title:"Button Shortcode",
+    id :'oscitas-form-efsbuttons',
+    pluginName: 'efsbuttons',
+    setRowColors:false
+};
 
-function create_oscitas_efs_button(){
-    if(jQuery('#oscitas-form-button').length){
-        jQuery('#oscitas-form-button').remove();
+(function() {
+    _efs_create_tinyMCE_options(efsbuttons,800);
+})();
+function create_oscitas_efsbuttons(pluginObj){
+    if(jQuery(pluginObj.hashId).length){
+        jQuery(pluginObj.hashId).remove();
     }
     // creates a form to be displayed everytime the button is clicked
     // you should achieve this using AJAX instead of direct html code like this
-    var form ='<div id="oscitas-form-button"><table id="oscitas-table" class="form-table">\
+    var form = jQuery('<div id="'+pluginObj.id+'" class="oscitas-container" title="'+pluginObj.title+'"><table id="oscitas-table" class="form-table">\
 			<tr>\
 				<th><label for="oscitas-button-style">Style:</label></th>\
 				<td><select name="type" id="oscitas-button-style">\
@@ -71,7 +54,7 @@ function create_oscitas_efs_button(){
 			</tr>\
                         <tr>\
                         <th><label for="oscitas-heading-icon">Select Icon:</label></th>\
-				<td><div id="click_icon_list_button" class="oscitas-icon-div"><span id="osc_show_icon_button"></span><span class="show-drop"></span></div><input type="hidden" id="osc_icon_class_val_button" value="">\
+				<td><div id="click_icon_list_button" class="oscitas-icon-div"><span id="osc_show_icon"></span><span class="show-drop"></span></div><input type="hidden" id="osc_icon_class_val_button" value="">\
                     <div id="osc_show_iconlist_button" class="oscitas-icon" style="display:none;width:100%"><ul name="oscitas-heading-icon_button" id="oscitas-heading-icon_button" class="oscitas-icon-ul">'+icons+'</ul></div>\
 				</td>\
 			</tr>\
@@ -116,17 +99,11 @@ function create_oscitas_efs_button(){
 		<p class="submit">\
 			<input type="button" id="oscitas-button-submit" class="button-primary" value="Insert Button" name="submit" />\
 		</p>\
-		</div>';
-    jQuery(form).dialog({
-        model:true,
-        dialogClass : 'wp-dialog osc-dialog',
-        height:'auto',
-        width:800,
-        title : 'Button Shortcode',
-        open:function(){
-            var content=jQuery(this);
-            var table = content.find('table');
-            content.find('.fi').css('display','inline');
+		</div>');
+    form.appendTo('body').hide();
+
+            var table = form.find('table');
+            form.find('.fi').css('display','inline');
 
             table.find('#click_icon_list_button').click(function(){
                 if(!jQuery(this).hasClass('osc_icon_showing_button')){
@@ -139,10 +116,11 @@ function create_oscitas_efs_button(){
             });
             table.find('#oscitas-heading-icon_button li').click(function(){
                 var val=jQuery(this).attr('data-value');
-                table.find('#oscitas-heading-icon_button li').removeClass('osc_icon_selected_button');
+                jQuery(this).parent().find('li').removeClass('osc_icon_selected_button');
                 jQuery(this).addClass('osc_icon_selected_button');
+                table.find('#click_icon_list_button').removeClass('osc_icon_showing_button');
                 table.find('#osc_show_iconlist_button').hide();
-                table.find('#osc_show_icon_button').removeClass().addClass('fi').addClass(val);
+                table.find('#osc_show_icon').removeClass().addClass('fi').addClass(val);
                 table.find('#osc_icon_class_val_button').val(val);
             })
 
@@ -155,11 +133,11 @@ function create_oscitas_efs_button(){
                     jQuery("#tr-button-link").hide();
                     jQuery("#tr-button-newwindow").hide();
                 }
-                jQuery('#oscitas-form-button table tr:visible:even').css('background', '#F0F0F0');
-                jQuery('#oscitas-form-button table tr:visible:odd').css('background', '#DADADD');
+                form.find('table tr:visible:even').css('background', '#F0F0F0');
+                form.find('tr:visible:odd').css('background', '#DADADD');
             });
             // handles the click event of the submit button
-            content.find('#oscitas-button-submit').click(function(){
+            form.find('#oscitas-button-submit').click(function(){
                 // defines the options and their default values
                 // again, this is not the most elegant way to do this
                 // but well, this gets the job done nonetheless
@@ -208,9 +186,8 @@ function create_oscitas_efs_button(){
                 tinyMCE.activeEditor.execCommand('mceInsertContent', 0, shortcode);
 
                 // closes fancybox
-                content.dialog( "destroy" );
-            });
-        }
+                efs_close_dialogue(pluginObj.hashId);
+            
     });
 }
 

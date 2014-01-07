@@ -1,41 +1,20 @@
-/**
- * Created with JetBrains PhpStorm.
- * User: oscitas
- * Date: 25/10/13
- * Time: 1:35 PM
- * To change this template use File | Settings | File Templates.
- */
+var efspricingtable={
+    title:"Pricing Table Shortcode",
+    id :'oscitas-form-efspricingtable',
+    pluginName: 'efspricingtable',
+    setRowColors:false
+};
+
 (function() {
-    tinymce.create('tinymce.plugins.oscitasEFSPricingtable', {
-        init: function(ed, url) {
-            ed.addButton('oscitasefspricingtable', {
-                title: 'Pricing Table Shortcode',
-                image: url + '/icon.png',
-                onclick: function() {
-                    create_oscitas_efs_pricingtable();
-                }
-            });
-        },
-        createControl: function(n, cm) {
-            return null;
-        },
-        getInfo: function() {
-            return {
-                longname: "Pricing Table Shortcode",
-                author : 'Oscitas Themes',
-                authorurl : 'http://www.oscitasthemes.com/',
-                infourl : 'http://www.oscitasthemes.com/',
-                version : "2.0.0"
-            };
-        }
-    });
-    tinymce.PluginManager.add('oscitasefspricingtable', tinymce.plugins.oscitasEFSPricingtable);
+    _efs_create_tinyMCE_options(efspricingtable);
 })();
-function create_oscitas_efs_pricingtable(){
-    if(jQuery('#oscitas-form-pricingtable').length){
-        jQuery('#oscitas-form-pricingtable').remove();
+function create_oscitas_efspricingtable(pluginObj){
+    if(jQuery(pluginObj.hashId).length){
+        jQuery(pluginObj.hashId).remove();
     }
-    var form='<div id="oscitas-form-pricingtable">\
+    // creates a form to be displayed everytime the button is clicked
+    // you should achieve this using AJAX instead of direct html code like this
+    var form = jQuery('<div id="'+pluginObj.id+'" class="oscitas-container" title="'+pluginObj.title+'">\
             <table id="oscitas-table" class="form-table">\
                 <tr>\
                 <th>No. Of Bullet Items:</th>\
@@ -61,35 +40,30 @@ function create_oscitas_efs_pricingtable(){
             <p class="submit">\
 			<input type="button" id="oscitas-pricingtable-submit" class="button-primary" value="Insert Pricing Table" name="submit" />\
 		    </p>\
-            </div>';
-    jQuery(form).dialog({
-        dialogClass : 'wp-dialog osc-dialog',
-        model:true,
-        height:'auto',
-        width:600,
-        title:'Pricing Table Shortcode',
-        open:function(){
-            var content=jQuery(this);
-            content.find('#oscitas-form-pricingtable-button-type').change(function(){
+            </div>');
+
+    form.appendTo('body').hide();
+    var table = form.find('table');
+           form.find('#oscitas-form-pricingtable-button-type').change(function(){
                 if(jQuery(this).val()=='button'){
-                    content.find('#oscitas-form-pricingtable-show-link').hide();
+                   form.find('#oscitas-form-pricingtable-show-link').hide();
                 }else{
-                    content.find('#oscitas-form-pricingtable-show-link').show();
+                   form.find('#oscitas-form-pricingtable-show-link').show();
                 }
             });
-            content.find('#oscitas-pricingtable-submit').click(function(){
+           form.find('#oscitas-pricingtable-submit').click(function(){
                 var bullets,no_of_bullets=3,type,link,cusclass,shortcode='';
-                if(content.find('#oscitas-form-pricingtable-bullets').val()!=''){
-                    no_of_bullets=content.find('#oscitas-form-pricingtable-bullets').val();
+                if(form.find('#oscitas-form-pricingtable-bullets').val()!=''){
+                    no_of_bullets=form.find('#oscitas-form-pricingtable-bullets').val();
                 }
-                type=' type="'+content.find('#oscitas-form-pricingtable-button-type').val()+'"';
-                if(content.find('#oscitas-form-pricingtable-button-type').val()=='link'){
-                    link=' link="'+content.find('#oscitas-form-pricingtable-link').val()+'"';
+                type=' type="'+form.find('#oscitas-form-pricingtable-button-type').val()+'"';
+                if(form.find('#oscitas-form-pricingtable-button-type').val()=='link'){
+                    link=' link="'+form.find('#oscitas-form-pricingtable-link').val()+'"';
                 }else{
                     link='';
                 }
-                if(content.find('#oscitas-pricingtable-class').val()!=''){
-                    cusclass= ' class="'+content.find('#oscitas-pricingtable-class').val()+'"';
+                if(form.find('#oscitas-pricingtable-class').val()!=''){
+                    cusclass= ' class="'+form.find('#oscitas-pricingtable-class').val()+'"';
                 }
                 else{
                     cusclass='';
@@ -107,8 +81,7 @@ function create_oscitas_efs_pricingtable(){
 
                 // inserts the shortcode into the active editor
                 tinyMCE.activeEditor.execCommand('mceInsertContent', 0, shortcode);
-                content.dialog( "destroy" );
+                efs_close_dialogue(pluginObj.hashId);
             });
-        }
-    });
+       
 }

@@ -19,7 +19,16 @@
                 <input type="radio" name="b_css" id="b_css_theme" value="2" <?php echo ($css == 2) ? 'checked=checked' : '' ?>><label for="b_css_theme">Use from theme or any other plugin</label>
             </p>
         </div>
-        <div class="efs_btn"><input type="submit" name="efs_submit" value="Update Settings"></div>
+        <div class="efs_details">
+            <label class="efs_setting_label">Editor Button Style</label>
+            <p>
+                <label for="efsp_icon" class="efs_editor_label" title="Icons"><input type="radio" name="efsp_editor_opt" id="efsp_icon" value="icon" <?php echo ($efsp_editor_opt == 'icon') ? 'checked=checked' : '' ?> style="display: none" class="efs_editor_style"><img src="<?php echo EFS_PLUGIN_URL.'images/icons.png'?>"></label>
+
+                <label for="efsp_dropdown" class="efs_editor_label" title="Dropdown"><input type="radio" name="efsp_editor_opt" id="efsp_dropdown" value="dropdown" <?php echo ($efsp_editor_opt == 'dropdown') ? 'checked=checked' : '' ?> style="display: none" class="efs_editor_style"><img src="<?php echo EFS_PLUGIN_URL.'images/dropdown.png'?>"></label>
+
+            </p>
+        </div>
+        <div class="efs_btn"><input type="submit" name="efs_submit" class="button-primary" value="Update Settings"></div>
         <div style="clear: both;"></div>
         <br /><br /><br />
         <b>CDN Links for foundation.js, you can use any of these</b>
@@ -35,6 +44,14 @@
     </form>
 </div>
 <script type="text/javascript">
+    function show_editor_style(){
+        jQuery('.efs_editor_label').removeClass('val_selected');
+        if(jQuery('#efsp_icon').prop('checked')){
+            jQuery('#efsp_icon').parent().addClass('val_selected');
+        } else  if(jQuery('#efsp_dropdown').prop('checked')){
+            jQuery('#efsp_dropdown').parent().addClass('val_selected');
+        }
+    }
     function show_cdn(){
         if(jQuery('#b_js_cdn').prop('checked')){
             jQuery('.show_cdn').show();
@@ -46,6 +63,11 @@
         show_cdn();
         jQuery('.check_cdn').click(function(){
             show_cdn();
+        })
+
+        show_editor_style();
+        jQuery('.efs_editor_style').click(function(){
+            show_editor_style();
         })
     })
 </script>

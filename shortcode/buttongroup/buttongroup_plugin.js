@@ -1,42 +1,20 @@
-/**
- * Created with JetBrains PhpStorm.
- * User: oscitas
- * Date: 28/10/13
- * Time: 10:05 AM
- * To change this template use File | Settings | File Templates.
- */
-(function() {
-    tinymce.create('tinymce.plugins.oscitasEFSbuttongroup', {
-        init : function(ed, url) {
-            ed.addButton('oscitasefsbuttongroup', {
-                title : 'Button Group Shortcode',
-                image : url+'/icon.png',
-                onclick : function() {
-                    create_oscitas_efs_buttongroup();
-                }
-            });
-        },
-        createControl : function(n, cm) {
-            return null;
-        },
-        getInfo : function() {
-            return {
-                longname : "Button Group",
-                author : 'Oscitas Themes',
-                authorurl : 'http://www.oscitasthemes.com/',
-                infourl : 'http://www.oscitasthemes.com/',
-                version : "2.0.0"
-            };
-        }
-    });
-    tinymce.PluginManager.add('oscitasefsbuttongroup', tinymce.plugins.oscitasEFSbuttongroup);
-})();
-function create_oscitas_efs_buttongroup(){
-    if(jQuery('#oscitas-form-buttongroup').length){
-        jQuery('#oscitas-form-buttongroup').remove();
-    }
+var efsbuttongroup={
+    title:"Button Group Shortcode",
+    id :'oscitas-form-efsbuttongroup',
+    pluginName: 'efsbuttongroup',
+    setRowColors:false
+};
 
-    var form ='<div id="oscitas-form-buttongroup">\
+(function() {
+    _efs_create_tinyMCE_options(efsbuttongroup);
+})();
+function create_oscitas_efsbuttongroup(pluginObj){
+    if(jQuery(pluginObj.hashId).length){
+        jQuery(pluginObj.hashId).remove();
+    }
+    // creates a form to be displayed everytime the button is clicked
+    // you should achieve this using AJAX instead of direct html code like this
+    var form = jQuery('<div id="'+pluginObj.id+'" class="oscitas-container" title="'+pluginObj.title+'">\
                 <table id="oscitas-table" class="form-table">\
                     <tr>\
                         <th><label for="oscitas-buttons-group-style">style</label></th>\
@@ -65,9 +43,9 @@ function create_oscitas_efs_buttongroup(){
                     <tr id="set-buttons-rows">\
                    <th>Button Setting</th> \
                    <td>\
-                        <table id="table_inner">\
-                              <thead><tr id="append-after-this"><div class="head_division" style="width: 31%;font-size:11px;padding-left:11px">Button type</div><div class="head_division" style="width: 31%;font-size:11px;padding-left:11px">Button Link</div><div class="head_division" style="width: 31%;font-size:11px;padding-left:11px;">Button Style</div></tr></thead>\
-                             <tbody> <tr>\
+                        <table id="table_inner" class="form-table">\
+                              <thead><tr id="append-after-this"><th>Button type</th><th>Button Link</th><th>Button Style</th></tr></thead>\
+                             <tbody><tr>\
                                   <td>\
                                       <select name="button_type[1]" id="button-type-1">\
                                         <option value="link" selected="selected">Link</option>\
@@ -116,17 +94,10 @@ function create_oscitas_efs_buttongroup(){
 			    <p class="submit">\
 			        <input type="button" id="oscitas-submit-button-group" class="button-primary" value="Insert Button Group" name="submit" />\
 		        </p>\
-			  </div>';
-    jQuery(form).dialog({
-        model:true,
-        dialogClass : 'wp-dialog osc-dialog',
-        height:'auto',
-        width:700,
-        title:'Button Group Shortcode',
-        open:function(){
-            var content=jQuery(this);
-            var table = content.find('#oscitas-table');
-            content.find('#oscitas-no-of-buttons').change(function(){
+			  </div>');
+    form.appendTo('body').hide();
+            var table = form.find('#oscitas-table');
+            form.find('#oscitas-no-of-buttons').change(function(){
                 var value=jQuery(this).val(),html='';
                 if(value!=''){
                     for(var i=1;i<=value;i++){
@@ -155,11 +126,11 @@ function create_oscitas_efs_buttongroup(){
                 }
             });
 
-            content.find('#oscitas-submit-button-group').click(function(){
+            form.find('#oscitas-submit-button-group').click(function(){
                 var shortcode='',style,no_of_btn,customclass='';
-                no_of_btn=content.find('#oscitas-no-of-buttons').val();
-                style=' style="'+content.find('#oscitas-buttons-group-style').val()+'"';
-                customclass=' class="'+content.find('#oscitas-buttongroup-class').val()+'"';
+                no_of_btn=form.find('#oscitas-no-of-buttons').val();
+                style=' style="'+form.find('#oscitas-buttons-group-style').val()+'"';
+                customclass=' class="'+form.find('#oscitas-buttongroup-class').val()+'"';
                 shortcode+='[efsbuttongroup '+style+customclass+']<br/>';
                 if(no_of_btn>=2){
                     for(var i=1; i<=no_of_btn;i++){
@@ -170,8 +141,7 @@ function create_oscitas_efs_buttongroup(){
                 // inserts the shortcode into the active editor
                 tinyMCE.activeEditor.execCommand('mceInsertContent', 0, shortcode);
                 // closes Thickbox
-                content.dialog( "destroy" );
-            });
-        }
+                efs_close_dialogue(pluginObj.hashId);
+
     });
 }
