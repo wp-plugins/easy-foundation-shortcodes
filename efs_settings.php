@@ -28,17 +28,20 @@
 
             </p>
         </div>
+        <div class="efs_details">
+            <label class="efs_setting_label">Custom CSS</label>
+            <p>
+                <textarea  name="efs_custom_css" id="efs_custom_css"><?php echo trim($efs_custom_css) ?></textarea>
+            </p>
+        </div>
         <div class="efs_btn"><input type="submit" name="efs_submit" class="button-primary" value="Update Settings"></div>
         <div style="clear: both;"></div>
         <br /><br /><br />
         <b>CDN Links for foundation.js, you can use any of these</b>
         <ul>
             <li>
-                //cdn.jsdelivr.net/foundation/5.0.2/js/foundation.min.js
+                <?php echo str_replace('http:','',EFS_JS_CDN)?>
             </li>
-<!--            <li>-->
-<!--                //cdn.jsdelivr.net/foundation/4.3.2/js/foundation.min.js-->
-<!--            </li>-->
         </ul>
 
     </form>
