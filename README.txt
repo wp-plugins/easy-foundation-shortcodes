@@ -15,9 +15,6 @@ Easy Foundation Shortcode enable you to add Zurb Foundation 5.0/4.0 styles in yo
 
 Easy Foundation Shortcode is Zurb Foundation 5.0/4.0 compatible plugin which add icons to wordpress editor (tinyMCE Shortcode Buttons) and one can add foundation style to their website just by clicking on tinyMCE  editor icon.
 
-[Easy Foundation Shortcode Demo](http://demo.oscitasthemes.com/efs/)
-
-Looking for Bootstrap Shortcode Plugin, check this [Easy Bootstrap Shortcode](http://wordpress.org/plugins/easy-bootstrap-shortcodes/)
 
 = For best results use with Zurb Foundation 5.0/4.0 responsive theme =
 
