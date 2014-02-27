@@ -1,5 +1,11 @@
 <div class="efs_page_settings">
-    <h1>Easy Foundation Shortcodes Settings for js/css files</h1><form name="efs_setting" id="efs_setting" method="post" action="">
+    <h1>Easy Foundation Shortcodes Settings </h1><form name="efs_setting" id="efs_setting" method="post" action="">
+        <div class="efs_details">
+            <label class="efs_setting_label">Foundation Theme</label>
+            <p>
+                <input type="radio" name="efs_theme" id="efs_theme_5" value="5" <?php echo ($efs_theme == 5) ? 'checked=checked' : '' ?>><label for="efs_theme_5">Foundation 5</label>
+                <input type="radio" name="efs_theme"  id="efs_theme_4" <?php echo ($efs_theme == 4) ? 'checked=checked' : '' ?> value="4"><label for="efs_theme_4">Foundation 4</label>
+        </div>
         <div class="efs_details">
             <label class="efs_setting_label">foundation.js file</label>
             <p>
@@ -8,7 +14,7 @@
                 <input type="radio" name="b_js" id="b_js_theme" class="check_cdn" value="2" <?php echo ($js == 2) ? 'checked=checked' : '' ?>><label for="b_js_theme">Use from theme or any other plugin</label>
                 <input type="radio" name="b_js" class="check_cdn" id="b_js_cdn" <?php echo ($js == 3) ? 'checked=checked' : '' ?> value="3"><label for="b_js_cdn">Load from CDN</label>
         </div>
-        <div class="efs_details show_cdn" ><label class="efs_setting_label">foundation.js CDN Path</label><input type="text" name="cdn_path" id="cdn_path" value="<?php echo $cdn; ?>">
+        <div class="efs_details show_cdn" ><label class="efs_setting_label">foundation.js CDN Path</label><p><input type="text" name="cdn_path" id="cdn_path" value="<?php echo $cdn; ?>">
             </p>
         </div>
         <div class="efs_details">
