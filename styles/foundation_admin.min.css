@@ -1,1 +1,193 @@
-.form-table{border:1px solid #9E9EA0}.form-table th{font-weight:700;font-size:11px;padding:12px 5px}#oscitas-form-iconhead .form-table th{width:120px}.form-table tr:nth-child(odd){background:#D6D6D6}.form-table tr:nth-child(even){background:#F0F0F0}.form-table td{border-left:1px solid #AAAAAE;min-width:150px;padding:10px}#oscitas-form-dropdown .form-table td{min-width:184px}.tb_multiple_column th{min-width:150px;border:0 none}.tb_multiple_column,.tb_multiple_column_upper{border:1px solid #C1BCC4!important}.tb_multiple_column thead tr,.tb_multiple_column_upper thead tr{background:none repeat scroll 0 0 #C2C2C2!important}.tb_multiple_column tbody tr:nth-child(even){background:none repeat scroll 0 0 #D7D7D7!important}.tb_multiple_column tbody tr:nth-child(odd){background:none repeat scroll 0 0 #ECECEC!important}.tb_multiple_column td{border:0 none}.tb_multiple_column_upper tbody tr:nth-child(even){background:none repeat scroll 0 0 #D7D7D7!important}.tb_multiple_column_upper tbody tr:nth-child(odd){background:none repeat scroll 0 0 #ECECEC!important}.tb_multiple_column_upper td{border:0 none}.tb_multiple_column #oscitas-append-dropdownitem{display:block;float:left;height:146px;overflow-x:hidden;overflow-y:auto;width:100%}#oscitas-form-dropdown .tb_multiple_column thead tr{display:block;position:relative;background:none repeat scroll 0 0 #D6D6D6!important}#oscitas-form-dropdown .tb_multiple_column thead tr th{background:none repeat scroll 0 0 #C2C2C2!important}.head_division{float:left;font-size:11px;text-align:left;width:42%}.head_division.right{text-align:right}.head_division_check{width:10%}#icon_show,#icon_show_button{margin-left:8px;background:none repeat scroll 0 0 #dbdbdb;border:1px solid #b3b3cd;padding:2px 4px}.oscitas-icon-div{background:none repeat scroll 0 0 #f4f4f4;border:1px solid #aaa;height:24px;width:190px;max-height:200px;overflow:auto}#osc_show_iconlist_button{max-height:200px;overflow:auto;}.oscitas-icon{border:3px double #a6a6a6;display:inline-block;margin-top:5px}.oscitas-icon ul li{float:left;font-size:25px;height:23px;margin:0;padding:4px;text-align:center;width:25px}.osc_icon_selected,.osc_icon_selected_button,.oscitas-icon ul li:hover{background:#f4f4f4;padding:3px!important;border:1px solid #a6a6a6}.show-drop{background:url(../images/drop_down.png) no-repeat scroll 0 0 transparent;float:right;height:13px;margin:7px 0 0;width:18px}.osc-dialog .ui-dialog-content.ui-widget-content{margin:10px}.osc-dialog #oscitas-table,.osc-dialog .form-table{margin:0 0 10px}.osc-dialog p.submit{margin:0;padding:5px 0 0}.osc-dialog input,.osc-dialog select,.osc-dialog textarea{font-size:12px;height:auto}.efs-widget-list .efs_widget-wrapper{background:-moz-linear-gradient(center bottom,#ECECEC 0,#F8F8F8 100%) repeat scroll 0 0 rgba(0,0,0,0);border:1px solid #CCC;border-radius:3px;box-shadow:0 1px 1px rgba(0,0,0,.05);cursor:pointer;padding:8px}.efs-widget-list .efs-widget-type{-moz-box-sizing:border-box;float:left;margin-bottom:10px;padding:0 5px;width:25%}.efs-widget-list .efs-widget-type h3{color:#333;font-size:14px;height:auto;margin:0 0 7px}.efs-widget-list .efs-widget-type small{display:block;font-size:11px;height:2.5em;line-height:1.25em;overflow:hidden}.osc-dialog .form-table input[type=radio]{margin:0 6px 0 7px}.osc-dialog .form-table,.osc-dialog .form-table td,.osc-dialog .form-table td p,.osc-dialog .form-table th,.osc-dialog .form-wrap label{font-size:12px}#osc_show_icon{float:left;font-family:'Glyphicons Halflings';font-size:20px;margin:2px 4px}#osc_image_upload img,#osc_thumbnail_upload img{float:right;height:70px;width:70px}.osc-dialog #oscitas-table{margin-top:0}.osc_efsp_dropdown .mceFirst a{width:auto!important}
+.form-table {
+    border: 1px solid #9E9EA0;
+}
+.form-table th {
+    font-weight: 700;
+    font-size: 11px;
+    padding: 12px 5px;
+}
+#oscitas-form-iconhead .form-table th {
+    width: 120px;
+}
+.form-table tr:nth-child(odd) {
+    background: #D6D6D6;
+}
+.form-table tr:nth-child(even) {
+    background: #F0F0F0;
+}
+.form-table td {
+    border-left: 1px solid #AAAAAE;
+    min-width: 150px;
+    padding: 10px;
+}
+#oscitas-form-dropdown .form-table td {
+    min-width: 184px;
+}
+.tb_multiple_column th {
+    min-width: 150px;
+    border: 0 none;
+}
+.tb_multiple_column, .tb_multiple_column_upper {
+    border: 1px solid #C1BCC4!important;
+}
+.tb_multiple_column thead tr, .tb_multiple_column_upper thead tr {
+    background: none repeat scroll 0 0 #C2C2C2!important;
+}
+.tb_multiple_column tbody tr:nth-child(even) {
+    background: none repeat scroll 0 0 #D7D7D7!important;
+}
+.tb_multiple_column tbody tr:nth-child(odd) {
+    background: none repeat scroll 0 0 #ECECEC!important;
+}
+.tb_multiple_column td {
+    border: 0 none;
+}
+.tb_multiple_column_upper tbody tr:nth-child(even) {
+    background: none repeat scroll 0 0 #D7D7D7!important;
+}
+.tb_multiple_column_upper tbody tr:nth-child(odd) {
+    background: none repeat scroll 0 0 #ECECEC!important;
+}
+.tb_multiple_column_upper td {
+    border: 0 none;
+}
+.tb_multiple_column #oscitas-append-dropdownitem {
+    display: block;
+    float: left;
+    height: 146px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    width: 100%}
+#oscitas-form-dropdown .tb_multiple_column thead tr {
+    display: block;
+    position: relative;
+    background: none repeat scroll 0 0 #D6D6D6!important;
+}
+#oscitas-form-dropdown .tb_multiple_column thead tr th {
+    background: none repeat scroll 0 0 #C2C2C2!important;
+}
+.head_division {
+    float: left;
+    font-size: 11px;
+    text-align: left;
+    width: 42%}
+.head_division.right {
+    text-align: right;
+}
+.head_division_check {
+    width: 10%}
+#icon_show, #icon_show_button {
+    margin-left: 8px;
+    background: none repeat scroll 0 0 #dbdbdb;
+    border: 1px solid #b3b3cd;
+    padding: 2px 4px;
+}
+.oscitas-icon-div {
+    background: none repeat scroll 0 0 #f4f4f4;
+    border: 1px solid #aaa;
+    height: 24px;
+    width: 190px;
+    max-height: 200px;
+    overflow: auto;
+}
+#osc_show_iconlist_button {
+    max-height: 200px;
+    overflow: auto;
+}
+.oscitas-icon {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #A6A6A6;
+    height: 268px;
+    margin-top: 5px;
+    overflow-y: scroll;
+}
+.oscitas-icon-ul {
+    padding: 0 8px;
+}
+.oscitas-icon ul li {
+    float: left;
+    font-size: 20px;
+    height: 23px;
+    line-height: 20px;
+    margin: 0;
+    padding: 4px;
+    text-align: center;
+    width: 24px;
+}
+.osc_icon_selected, .osc_icon_selected_button, .oscitas-icon ul li:hover {
+    background: #f4f4f4;
+    padding: 3px!important;
+    border: 1px solid #a6a6a6;
+}
+.show-drop {
+    background: url(../images/drop_down.png) no-repeat scroll 0 0 transparent;
+    float: right;
+    height: 13px;
+    margin: 7px 0 0;
+    width: 18px;
+}
+.osc-dialog .ui-dialog-content.ui-widget-content {
+    margin: 10px;
+}
+.osc-dialog #oscitas-table, .osc-dialog .form-table {
+    margin: 0 0 10px;
+}
+.osc-dialog p.submit {
+    margin: 0;
+    padding: 5px 0 0;
+}
+.osc-dialog input, .osc-dialog select, .osc-dialog textarea {
+    font-size: 12px;
+    height: auto;
+}
+.efs-widget-list .efs_widget-wrapper {
+    background: -moz-linear-gradient(center bottom, #ECECEC 0, #F8F8F8 100%) repeat scroll 0 0 rgba(0, 0, 0, 0);
+    border: 1px solid #CCC;
+    border-radius: 3px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+    cursor: pointer;
+    padding: 8px;
+}
+.efs-widget-list .efs-widget-type {
+    -moz-box-sizing: border-box;
+    float: left;
+    margin-bottom: 10px;
+    padding: 0 5px;
+    width: 25%}
+.efs-widget-list .efs-widget-type h3 {
+    color: #333;
+    font-size: 14px;
+    height: auto;
+    margin: 0 0 7px;
+}
+.efs-widget-list .efs-widget-type small {
+    display: block;
+    font-size: 11px;
+    height: 2.5em;
+    line-height: 1.25em;
+    overflow: hidden;
+}
+.osc-dialog .form-table input[type=radio] {
+    margin: 0 6px 0 7px;
+}
+.osc-dialog .form-table, .osc-dialog .form-table td, .osc-dialog .form-table td p, .osc-dialog .form-table th, .osc-dialog .form-wrap label {
+    font-size: 12px;
+}
+#osc_show_icon {
+    float: left;
+    font-family: 'Glyphicons Halflings';
+    font-size: 20px;
+    line-height: 20px;
+    margin: 3px 0 0 6px;
+}
+#osc_image_upload img, #osc_thumbnail_upload img {
+    float: right;
+    height: 70px;
+    width: 70px;
+}
+.osc-dialog #oscitas-table {
+    margin-top: 0;
+}
+.osc_efsp_dropdown .mceFirst a {
+    width: auto!important;
+}

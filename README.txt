@@ -85,6 +85,11 @@ It's that simple ... just what the name suggests
 == Changelog ==
 
 
+= 2.0.0 =
+
+* [Update] Now support medium columns in Foundation 4.
+* [Fixes] Custom classes not working issue is resolved
+
 = 1.3.0 =
 
 * [Update] Now user can set either he/she want to use Foundation 4 or 5 in the settings page

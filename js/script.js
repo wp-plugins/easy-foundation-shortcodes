@@ -6,6 +6,8 @@
  * Time: 9:34 AM
  * To change this template use File | Settings | File Templates.
  */
-if (typeof osCitasGlobalVar != 'undefined' && osCitasGlobalVar){
-    jQuery(document).foundation();
-}
+jQuery(window).load(function() {
+    if (typeof osCitasGlobalVar != 'undefined' && osCitasGlobalVar){
+        jQuery(document).foundation();
+    }
+});
