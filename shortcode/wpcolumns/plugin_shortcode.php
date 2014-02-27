@@ -29,6 +29,7 @@ function osc_theme_efs_column_shortcode($params, $content = null) {
         'lg' => '',
         'centeredlarge' => '',
         'centeredsmall' => '',
+        'md'=>'',
         'smoff' => '',
         'lgoff' => '',
         'off'=>''
@@ -45,13 +46,13 @@ function osc_theme_efs_column_shortcode($params, $content = null) {
         $centeredsmall = '';
     }
 
-    $arr = array('sm');
+    $arr = array('small'=>'sm','medium'=>'md');
     $classes = array();
-    foreach ($arr as $aa) {
+    foreach ($arr as $k => $aa) {
         if (${$aa} == 12 || ${$aa} == '') {
-            $classes[] = 'small-12';
+            $classes[] = $k.'-12';
         } else {
-            $classes[] = 'small-' . ${$aa};
+            $classes[] = $k.'-' . ${$aa};
         }
     }
     $arr2 = array('smoff', 'lgoff');

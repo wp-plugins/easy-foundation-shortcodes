@@ -85,6 +85,10 @@ It's that simple ... just what the name suggests
 == Changelog ==
 
 
+= 2.1.0 =
+
+* [Fixes] Medium columns error in Foundation 4.
+
 = 2.0.0 =
 
 * [Update] Now support medium columns in Foundation 4.
