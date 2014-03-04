@@ -85,6 +85,10 @@ It's that simple ... just what the name suggests
 == Changelog ==
 
 
+= 2.2.0 =
+
+* [Fixes] Resolved the tabs issues and other CSS issues.
+
 = 2.1.0 =
 
 * [Fixes] Medium columns error in Foundation 4.
