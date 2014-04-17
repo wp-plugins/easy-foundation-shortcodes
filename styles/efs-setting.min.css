@@ -1,0 +1,81 @@
+#efs_setting {
+    margin: 20px 0 0;
+}
+.efs_page_settings {
+    margin-top: 20px;
+}
+.efs_page_settings h1 {
+    background: none repeat scroll 0 0 #E4EFFF;
+    color: #555555;
+    font-weight: normal;
+    padding: 10px;
+    text-align: center;
+    width: 88.5%;
+}
+.efs_details {
+    border: 1px solid #CCC;
+    float: left;
+    width: 90%;
+    margin: 8px 0;
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -ms-border-radius: 3px;
+}
+.efs_details label {
+    line-height: 30px;
+    margin: 0 10px 0 0;
+    padding: 5px 10px;
+    text-align: right;
+    width: 170px;
+}
+.efs_details > label {
+    cursor: default;
+    font-weight: bold;
+    padding: 5px 13px 0 0;
+}
+.efs_details>p {
+    border-left: 1px solid #CCC;
+    float: left;
+    margin: 0;
+    padding: 5px 5px 5px 15px;
+}
+.efs_details.show_cdn>#cdn_path {
+    margin: 8px 0 0 10px;
+    width: 462px;
+}
+.efs_details.show_cdn #cdn_path, .efs_details.respond_show_cdn #respond_cdn_path {
+    margin: 8px 0 0 10px;
+    width: 462px;
+}
+.efs_setting_label {
+    display: block;
+    float: left;
+}
+.efs_page_settings .efs_btn {
+    float: left;
+    width: 90%}
+label.efs_editor_label {
+    float: left;
+    padding: 5px;
+    border: 1px solid #F1F1F1;
+    width: auto;
+    margin: 10px 15px 10px 0;
+}
+label.efs_editor_label:hover, .efs_editor_label.val_selected {
+    background: #fff;
+    padding: 5px;
+    border: 1px solid #CCCCCC;
+    box-shadow: 0 0 3px #C4C4C4;
+    float:  left;
+    width: auto;
+    margin:10px 15px 10px 0;
+}
+#efs_custom_css {
+    background: none repeat scroll 0 0 #FFFBEF;
+    box-shadow: 0 0 2px #C4C4C4;
+    margin: 6px 0;
+    min-height: 200px;
+    width: 600px;
+}
+
