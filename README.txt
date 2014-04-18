@@ -88,6 +88,10 @@ It's that simple ... just what the name suggests
 
 
 
+= 2.4.0 =
+
+* [Fixes] Unable to edit values in popup issue resolved.
+
 = 2.3.0 =
 
 * [Fixes] Wordpress 3.9 ready.

@@ -195,5 +195,5 @@
     background: none repeat scroll 0 0 #292424 !important;
 }
 .osc-dialog{
-    z-index: 10000 !important;
+    z-index: 1000000 !important;
 }
