@@ -66,6 +66,8 @@ Easy Foundation Shortcode provides following styles
 17. Button Dropdown
 18. Button Groups
 
+Follow us [@Twitter](https://twitter.com/oscitasthemes), [@facebook](https://www.facebook.com/oscitaswebsolution), [@google+](https://plus.google.com/109122908951553852347/posts)
+
 == Installation ==
 
 1.Upload:
