@@ -8,7 +8,7 @@ var efstables={
 (function() {
     _efs_create_tinyMCE_options(efstables);
 })();
-function create_oscitas_efstables(pluginObj){
+function create_oscitas_efstables(pluginObj,dynamic){
     if(jQuery(pluginObj.hashId).length){
         jQuery(pluginObj.hashId).remove();
     }
@@ -40,7 +40,11 @@ function create_oscitas_efstables(pluginObj){
 			<input type="button" id="oscitas-submit" class="button-primary" value="Insert Table" name="submit" />\
 		</p>\
 		</div>');
-    form.appendTo('body').hide();
+    if(!dynamic){
+        form.appendTo('body').hide();
+    }else{
+        form=jQuery('.mfp-content');
+    }
     var table = form.find('table');
 
             // handles the click event of the submit button

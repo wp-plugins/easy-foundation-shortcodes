@@ -8,7 +8,7 @@ var efsflexvideo={
 (function() {
     _efs_create_tinyMCE_options(efsflexvideo);
 })();
-function create_oscitas_efsflexvideo(pluginObj){
+function create_oscitas_efsflexvideo(pluginObj,dynamic){
     if(jQuery(pluginObj.hashId).length){
         jQuery(pluginObj.hashId).remove();
     }
@@ -54,7 +54,11 @@ function create_oscitas_efsflexvideo(pluginObj){
 			<input type="button" id="oscitas-flexvideo-submit" class="button-primary" value="Insert Flex Video" name="submit" />\
 		    </p>\
             </div>');
-    form.appendTo('body').hide();
+    if(!dynamic){
+        form.appendTo('body').hide();
+    }else{
+        form=jQuery('.mfp-content');
+    }
     var table = form.find('table');
 //            form.find('#oscitas-form-flexvideo-type').change(function(){
 //                if(jQuery(this).val()=='button'){
@@ -63,30 +67,30 @@ function create_oscitas_efsflexvideo(pluginObj){
 //                    form.find('#oscitas-form-pricingtable-show-link').show();
 //                }
 //            });
-            form.find('#oscitas-flexvideo-submit').click(function(){
-                var allowfullscreen,widescreen,type,url,cusclass,width,height,shortcode='';
+    form.find('#oscitas-flexvideo-submit').click(function(){
+        var allowfullscreen,widescreen,type,url,cusclass,width,height,shortcode='';
 
-                type=' type="'+form.find('#oscitas-form-flexvideo-type').val()+'"';
-                url=' url="'+form.find('#oscitas-form-flexvideo-url').val()+'"';
-                width=' width="'+form.find('#oscitas-form-flexvideo-width').val()+'"';
-                height=' height="'+form.find('#oscitas-form-flexvideo-height').val()+'"';
+        type=' type="'+form.find('#oscitas-form-flexvideo-type').val()+'"';
+        url=' url="'+form.find('#oscitas-form-flexvideo-url').val()+'"';
+        width=' width="'+form.find('#oscitas-form-flexvideo-width').val()+'"';
+        height=' height="'+form.find('#oscitas-form-flexvideo-height').val()+'"';
 
-                if(form.find('#oscitas-form-flexvideo-widescreen').val()=='yes'){
-                    widescreen=' widescreen="'+form.find('#oscitas-form-flexvideo-widescreen').val()+'"';
-                }
-                if(form.find('#oscitas-form-flexvideo-fullscreen').val()=='yes'){
-                    allowfullscreen=' allowfullscreen="'+form.find('#oscitas-form-flexvideo-fullscreen').val()+'"';
-                }
-                if(form.find('#oscitas-flexvideo-class').val()!=''){
-                    cusclass= ' class="'+form.find('#oscitas-flexvideo-class').val()+'"';
-                }
-                else{
-                    cusclass='';
-                }
-                shortcode='[efsflexvideo '+type+cusclass+url+allowfullscreen+widescreen+width+height+'/]'+'<br/>'
+        if(form.find('#oscitas-form-flexvideo-widescreen').val()=='yes'){
+            widescreen=' widescreen="'+form.find('#oscitas-form-flexvideo-widescreen').val()+'"';
+        }
+        if(form.find('#oscitas-form-flexvideo-fullscreen').val()=='yes'){
+            allowfullscreen=' allowfullscreen="'+form.find('#oscitas-form-flexvideo-fullscreen').val()+'"';
+        }
+        if(form.find('#oscitas-flexvideo-class').val()!=''){
+            cusclass= ' class="'+form.find('#oscitas-flexvideo-class').val()+'"';
+        }
+        else{
+            cusclass='';
+        }
+        shortcode='[efsflexvideo '+type+cusclass+url+allowfullscreen+widescreen+width+height+'/]'+'<br/>'
 
-                // inserts the shortcode into the active editor
-                tinyMCE.activeEditor.execCommand('mceInsertContent', 0, shortcode);
-                efs_close_dialogue(pluginObj.hashId);
-            });
+        // inserts the shortcode into the active editor
+        tinyMCE.activeEditor.execCommand('mceInsertContent', 0, shortcode);
+        efs_close_dialogue(pluginObj.hashId);
+    });
 }

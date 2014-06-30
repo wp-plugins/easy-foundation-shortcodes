@@ -8,7 +8,7 @@ var efsbuttongroup={
 (function() {
     _efs_create_tinyMCE_options(efsbuttongroup);
 })();
-function create_oscitas_efsbuttongroup(pluginObj){
+function create_oscitas_efsbuttongroup(pluginObj,dynamic){
     if(jQuery(pluginObj.hashId).length){
         jQuery(pluginObj.hashId).remove();
     }
@@ -95,13 +95,17 @@ function create_oscitas_efsbuttongroup(pluginObj){
 			        <input type="button" id="oscitas-submit-button-group" class="button-primary" value="Insert Button Group" name="submit" />\
 		        </p>\
 			  </div>');
-    form.appendTo('body').hide();
-            var table = form.find('#oscitas-table');
-            form.find('#oscitas-no-of-buttons').change(function(){
-                var value=jQuery(this).val(),html='';
-                if(value!=''){
-                    for(var i=1;i<=value;i++){
-                        html+='<tr>\
+    if(!dynamic){
+        form.appendTo('body').hide();
+    }else{
+        form=jQuery('.mfp-content');
+    }
+    var table = form.find('#oscitas-table');
+    form.find('#oscitas-no-of-buttons').change(function(){
+        var value=jQuery(this).val(),html='';
+        if(value!=''){
+            for(var i=1;i<=value;i++){
+                html+='<tr>\
                                   <td>\
                                       <select name="button_type['+i+']" id="button-type-'+i+'">\
                                         <option value="link" selected="selected">Link</option>\
@@ -120,28 +124,28 @@ function create_oscitas_efsbuttongroup(pluginObj){
                                     </select><br/>\
                                  </td>\
                               </tr>';
-                    }
-                    table.find('#table_inner tbody tr').remove();
-                    jQuery(html).appendTo(table.find('#table_inner tbody'));
-                }
-            });
+            }
+            table.find('#table_inner tbody tr').remove();
+            jQuery(html).appendTo(table.find('#table_inner tbody'));
+        }
+    });
 
-            form.find('#oscitas-submit-button-group').click(function(){
-                var shortcode='',style,no_of_btn,customclass='';
-                no_of_btn=form.find('#oscitas-no-of-buttons').val();
-                style=' style="'+form.find('#oscitas-buttons-group-style').val()+'"';
-                customclass=' class="'+form.find('#oscitas-buttongroup-class').val()+'"';
-                shortcode+='[efsbuttongroup '+style+customclass+']<br/>';
-                if(no_of_btn>=2){
-                    for(var i=1; i<=no_of_btn;i++){
-                       shortcode+='[efsbuttongroupbutton type="'+table.find('#table_inner').find('#button-type-'+i+'').val()+'" link="'+table.find('#table_inner').find('#button-link-'+i+'').val()+'" btnstyle="'+table.find('#table_inner').find('#button-style-'+i+'').val()+'"]<b>Button-'+i+'</b>[/efsbuttongroupbutton]<br/>';
-                    }
-                }
-                shortcode+='[/efsbuttongroup]';
-                // inserts the shortcode into the active editor
-                tinyMCE.activeEditor.execCommand('mceInsertContent', 0, shortcode);
-                // closes Thickbox
-                efs_close_dialogue(pluginObj.hashId);
+    form.find('#oscitas-submit-button-group').click(function(){
+        var shortcode='',style,no_of_btn,customclass='';
+        no_of_btn=form.find('#oscitas-no-of-buttons').val();
+        style=' style="'+form.find('#oscitas-buttons-group-style').val()+'"';
+        customclass=' class="'+form.find('#oscitas-buttongroup-class').val()+'"';
+        shortcode+='[efsbuttongroup '+style+customclass+']<br/>';
+        if(no_of_btn>=2){
+            for(var i=1; i<=no_of_btn;i++){
+                shortcode+='[efsbuttongroupbutton type="'+table.find('#table_inner').find('#button-type-'+i+'').val()+'" link="'+table.find('#table_inner').find('#button-link-'+i+'').val()+'" btnstyle="'+table.find('#table_inner').find('#button-style-'+i+'').val()+'"]<b>Button-'+i+'</b>[/efsbuttongroupbutton]<br/>';
+            }
+        }
+        shortcode+='[/efsbuttongroup]';
+        // inserts the shortcode into the active editor
+        tinyMCE.activeEditor.execCommand('mceInsertContent', 0, shortcode);
+        // closes Thickbox
+        efs_close_dialogue(pluginObj.hashId);
 
     });
 }

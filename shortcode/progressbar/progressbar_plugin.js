@@ -8,7 +8,7 @@ var efsprogressbar={
 (function() {
     _efs_create_tinyMCE_options(efsprogressbar);
 })();
-function create_oscitas_efsprogressbar(pluginObj){
+function create_oscitas_efsprogressbar(pluginObj,dynamic){
     if(jQuery(pluginObj.hashId).length){
         jQuery(pluginObj.hashId).remove();
     }
@@ -60,19 +60,23 @@ function create_oscitas_efsprogressbar(pluginObj){
 			<input type="button" id="oscitas-progressbar-submit" class="button-primary" value="Insert Button" name="submit" />\
 		</p>\
 		</div>');
-    form.appendTo('body').hide();
+    if(!dynamic){
+        form.appendTo('body').hide();
+    }else{
+        form=jQuery('.mfp-content');
+    }
     var table = form.find('table');
     var table = form.find('table');
-    jQuery(pluginObj.hashId).find('table tr:visible:even').css('background', '#F0F0F0');
-    jQuery(pluginObj.hashId).find('table tr:visible:odd').css('background', '#DADADD');
+    jQuery(pluginObj.hashId).find('table tr:visible:even').css('background', '#ffffff');
+    jQuery(pluginObj.hashId).find('table tr:visible:odd').css('background', '#efefef');
     table.find('#oscitas-progressbar-stripped').click(function(){
         if(jQuery(this).prop('checked')){
             jQuery('#osc_progress_animate').show();
         } else{
             jQuery('#osc_progress_animate').hide();
         }
-        jQuery(pluginObj.hashId).find('table tr:visible:even').css('background', '#F0F0F0');
-        jQuery(pluginObj.hashId).find('table tr:visible:odd').css('background', '#DADADD');
+        jQuery(pluginObj.hashId).find('table tr:visible:even').css('background', '#ffffff');
+        jQuery(pluginObj.hashId).find('table tr:visible:odd').css('background', '#efefef');
     })
 
 

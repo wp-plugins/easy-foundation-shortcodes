@@ -8,7 +8,7 @@ var efsicon={
 (function() {
     _efs_create_tinyMCE_options(efsicon,800);
 })();
-function create_oscitas_efsicon(pluginObj){
+function create_oscitas_efsicon(pluginObj,dynamic){
     if(jQuery(pluginObj.hashId).length){
         jQuery(pluginObj.hashId).remove();
     }
@@ -32,7 +32,11 @@ function create_oscitas_efsicon(pluginObj){
 			<input type="button" id="oscitas-icon-submit" class="button-primary" value="Insert icon" name="submit" />\
 		</p>\
 		</div>');
-    form.appendTo('body').hide();
+    if(!dynamic){
+        form.appendTo('body').hide();
+    }else{
+        form=jQuery('.mfp-content');
+    }
     var table = form.find('table');
 
             form.find('.fi').css('display','inline');

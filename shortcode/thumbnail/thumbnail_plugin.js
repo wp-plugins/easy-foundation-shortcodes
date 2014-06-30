@@ -8,7 +8,7 @@ var efsthumbnail={
 (function() {
     _efs_create_tinyMCE_options(efsthumbnail,600);
 })();
-function create_oscitas_efsthumbnail(pluginObj){
+function create_oscitas_efsthumbnail(pluginObj,dynamic){
     if(jQuery(pluginObj.hashId).length){
         jQuery(pluginObj.hashId).remove();
     }
@@ -40,12 +40,19 @@ function create_oscitas_efsthumbnail(pluginObj){
 			<input type="button" id="oscitas-thumbnail-submit" class="button-primary" value="Insert Thumbnail" name="submit" />\
 		</p>\
 		</div>');
-    form.appendTo('body').hide();
+    if(!dynamic){
+        form.appendTo('body').hide();
+    }else{
+        form=jQuery('.mfp-content');
+    }
     var table = form.find('table');
 
     form.find('.upload_image_button').click(function() {
 //                jQuery(form).dialog({modal:false});
-        jQuery('.ui-widget-overlay, .ui-dialog').css('z-index',100);
+        //console.log(123);
+//        jQuery('.osc-dialog').css('z-index',100049);
+//        jQuery('#TB_overlay').css('z-index',10000010);
+//        jQuery('#TB_window').css('z-index',10000010);
         jQuery('html').addClass('Image');
         formfield = jQuery(this).prev().attr('id');
         tb_show('', 'media-upload.php?type=image&amp;TB_iframe=true');
@@ -89,7 +96,7 @@ function create_oscitas_efsthumbnail(pluginObj){
         }
 
         if(form.find('#oscitas-thumbnail-src').val()!=''){
-            shortcode = '[efsthumbnail'+link+cusclass+radius+' src="'+form.find('#oscitas-thumbnail-src').val()+'"]';
+            shortcode = '[efsthumbnail sdsd'+link+cusclass+radius+' src="'+form.find('#oscitas-thumbnail-src').val()+'"]';
         }
         // inserts the shortcode into the active editor
         tinyMCE.activeEditor.execCommand('mceInsertContent', 0, shortcode);

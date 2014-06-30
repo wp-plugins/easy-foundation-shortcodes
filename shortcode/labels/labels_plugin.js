@@ -8,7 +8,7 @@ var efslabels={
 (function() {
     _efs_create_tinyMCE_options(efslabels);
 })();
-function create_oscitas_efslabels(pluginObj){
+function create_oscitas_efslabels(pluginObj,dynamic){
     if(jQuery(pluginObj.hashId).length){
         jQuery(pluginObj.hashId).remove();
     }
@@ -49,7 +49,11 @@ function create_oscitas_efslabels(pluginObj){
 			<input type="button" id="oscitas-label-submit" class="button-primary" value="Insert Label" name="submit" />\
 		</p>\
 		</div>');
-    form.appendTo('body').hide();
+    if(!dynamic){
+        form.appendTo('body').hide();
+    }else{
+        form=jQuery('.mfp-content');
+    }
     var table = form.find('table');
     // handles the click event of the submit button
     form.find('#oscitas-label-submit').click(function(){

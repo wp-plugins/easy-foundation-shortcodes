@@ -6,9 +6,9 @@ var efswpcolumns={
 };
 
 (function() {
-    _efs_create_tinyMCE_options(efswpcolumns,1094);
+    _efs_create_tinyMCE_options(efswpcolumns,1000);
 })();
-function create_oscitas_efswpcolumns(pluginObj){
+function create_oscitas_efswpcolumns(pluginObj,dynamic){
     if(jQuery(pluginObj.hashId).length){
         jQuery(pluginObj.hashId).remove();
     }
@@ -60,7 +60,11 @@ function create_oscitas_efswpcolumns(pluginObj){
 			<input type="button" id="oscitas-submit-wp_column" class="button-primary" value="Insert Columns" name="submit" />\
 		</p>\
 		</div>');
-    form.appendTo('body').hide();
+    if(!dynamic){
+        form.appendTo('body').hide();
+    }else{
+        form=jQuery('.mfp-content');
+    }
     var table = form.find('table');
     function show_table(){
 
@@ -148,8 +152,8 @@ function create_oscitas_efswpcolumns(pluginObj){
             })
 
         }
-        form.find('table tr:visible:even').css('background', '#F0F0F0');
-        form.find('table tr:visible:odd').css('background', '#DADADD');
+        form.find('table tr:visible:even').css('background', '#ffffff');
+        form.find('table tr:visible:odd').css('background', '#efefef');
     }
 
     show_table();

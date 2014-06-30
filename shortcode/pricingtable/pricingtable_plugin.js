@@ -8,7 +8,7 @@ var efspricingtable={
 (function() {
     _efs_create_tinyMCE_options(efspricingtable);
 })();
-function create_oscitas_efspricingtable(pluginObj){
+function create_oscitas_efspricingtable(pluginObj,dynamic){
     if(jQuery(pluginObj.hashId).length){
         jQuery(pluginObj.hashId).remove();
     }
@@ -42,7 +42,11 @@ function create_oscitas_efspricingtable(pluginObj){
 		    </p>\
             </div>');
 
-    form.appendTo('body').hide();
+    if(!dynamic){
+        form.appendTo('body').hide();
+    }else{
+        form=jQuery('.mfp-content');
+    }
     var table = form.find('table');
            form.find('#oscitas-form-pricingtable-button-type').change(function(){
                 if(jQuery(this).val()=='button'){

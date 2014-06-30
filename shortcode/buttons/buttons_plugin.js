@@ -8,7 +8,7 @@ var efsbuttons={
 (function() {
     _efs_create_tinyMCE_options(efsbuttons,800);
 })();
-function create_oscitas_efsbuttons(pluginObj){
+function create_oscitas_efsbuttons(pluginObj,dynamic){
     if(jQuery(pluginObj.hashId).length){
         jQuery(pluginObj.hashId).remove();
     }
@@ -100,7 +100,11 @@ function create_oscitas_efsbuttons(pluginObj){
 			<input type="button" id="oscitas-button-submit" class="button-primary" value="Insert Button" name="submit" />\
 		</p>\
 		</div>');
-    form.appendTo('body').hide();
+    if(!dynamic){
+        form.appendTo('body').hide();
+    }else{
+        form=jQuery('.mfp-content');
+    }
 
             var table = form.find('table');
             form.find('.fi').css('display','inline');
@@ -133,8 +137,8 @@ function create_oscitas_efsbuttons(pluginObj){
                     jQuery("#tr-button-link").hide();
                     jQuery("#tr-button-newwindow").hide();
                 }
-                form.find('table tr:visible:even').css('background', '#F0F0F0');
-                form.find('tr:visible:odd').css('background', '#DADADD');
+                form.find('table tr:visible:even').css('background', '#ffffff');
+                form.find('tr:visible:odd').css('background', '#efefef');
             });
             // handles the click event of the submit button
             form.find('#oscitas-button-submit').click(function(){

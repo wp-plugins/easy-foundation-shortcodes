@@ -8,7 +8,7 @@ var efspanel={
 (function() {
     _efs_create_tinyMCE_options(efspanel);
 })();
-function create_oscitas_efspanel(pluginObj){
+function create_oscitas_efspanel(pluginObj,dynamic){
     if(jQuery(pluginObj.hashId).length){
         jQuery(pluginObj.hashId).remove();
     }
@@ -38,7 +38,11 @@ function create_oscitas_efspanel(pluginObj){
 			<input type="button" id="oscitas-submit" class="button-primary" value="Insert Panel" name="submit" />\
 		</p>\
 		</div>');
-    form.appendTo('body').hide();
+    if(!dynamic){
+        form.appendTo('body').hide();
+    }else{
+        form=jQuery('.mfp-content');
+    }
     var table = form.find('table');
 
             // handles the click event of the submit button

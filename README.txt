@@ -65,8 +65,10 @@ Easy Foundation Shortcode provides following styles
 16. Price Tables
 17. Button Dropdown
 18. Button Groups
-
-Follow us [@Twitter](https://twitter.com/oscitasthemes), [@facebook](https://www.facebook.com/oscitaswebsolution), [@google+](https://plus.google.com/109122908951553852347/posts)
+19. Interchange
+20. Visibility
+21. Sidenav
+22. Subnav
 
 == Installation ==
 
@@ -89,6 +91,13 @@ It's that simple ... just what the name suggests
 == Changelog ==
 
 
+
+= 2.5.0 =
+
+* [Update] New Interchange shortcode added
+* [Update] New Visibility shortcode added
+* [Update] New Sidenav shortcode added
+* [Update] New Subnav shortcode added
 
 = 2.4.0 =
 

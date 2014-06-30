@@ -8,7 +8,7 @@ var efslists={
 (function() {
     _efs_create_tinyMCE_options(efslists);
 })();
-function create_oscitas_efslists(pluginObj){
+function create_oscitas_efslists(pluginObj,dynamic){
     if(jQuery(pluginObj.hashId).length){
         jQuery(pluginObj.hashId).remove();
     }
@@ -30,7 +30,11 @@ function create_oscitas_efslists(pluginObj){
 			<input type="button" id="oscitas-submit" class="button-primary" value="Insert List" name="submit" />\
 		</p>\
 		</div>');
-    form.appendTo('body').hide();
+    if(!dynamic){
+        form.appendTo('body').hide();
+    }else{
+        form=jQuery('.mfp-content');
+    }
     var table = form.find('table');
             // handles the click event of the submit button
             form.find('#oscitas-submit').click(function(){
