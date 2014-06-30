@@ -1,52 +1,67 @@
 .form-table {
-    border: 1px solid #9E9EA0;
+    border:1px solid #e0e0e0;
 }
 .form-table th {
-    font-weight: 700;
-    font-size: 11px;
-    padding: 12px 5px;
+    line-height: 1.3;
+    min-width: 20%;
+    text-align: left;
+    vertical-align: top;
+    white-space: nowrap;
+    padding: 10px;
+    border-bottom: 1px solid #e0e0e0;
+    color: #696666;
 }
-#oscitas-form-iconhead .form-table th {
+/*#oscitas-form-iconhead .form-table th {
     width: 120px;
-}
+}*/
 .form-table tr:nth-child(odd) {
-    background: #D6D6D6;
+    background: #fff;
 }
 .form-table tr:nth-child(even) {
-    background: #F0F0F0;
+    background: #efefef;
 }
 .form-table td {
-    border-left: 1px solid #AAAAAE;
-    min-width: 150px;
+    border-left: 1px solid #e0e0e0;
+    min-width: 110px;
     padding: 10px;
+    border-bottom: 1px solid #e0e0e0;
 }
-#oscitas-form-dropdown .form-table td {
+#efs-popup .tb_multiple_column,
+#efs-popup .tb_multiple_column_upper{
+    border-collapse: collapse;
+}
+
+/*#oscitas-form-dropdown .form-table td {
     min-width: 184px;
-}
+}*/
 .tb_multiple_column th {
-    min-width: 150px;
+    min-width:110px;
     border: 0 none;
 }
 .tb_multiple_column, .tb_multiple_column_upper {
-    border: 1px solid #C1BCC4!important;
+    border: 1px solid #e0e0e0 !important;
 }
 .tb_multiple_column thead tr, .tb_multiple_column_upper thead tr {
-    background: none repeat scroll 0 0 #C2C2C2!important;
+    background: none repeat scroll 0 0 #13A7C6 !important;
+}
+.tb_multiple_column thead tr, .tb_multiple_column_upper thead tr th,
+.tb_multiple_column thead tr, .tb_multiple_column thead tr th {
+    color: #fff !important;
 }
 .tb_multiple_column tbody tr:nth-child(even) {
-    background: none repeat scroll 0 0 #D7D7D7!important;
+    background: none repeat scroll 0 0 #ffffff !important;
 }
 .tb_multiple_column tbody tr:nth-child(odd) {
-    background: none repeat scroll 0 0 #ECECEC!important;
+    background: none repeat scroll 0 0 #efefef !important;
 }
 .tb_multiple_column td {
     border: 0 none;
 }
 .tb_multiple_column_upper tbody tr:nth-child(even) {
-    background: none repeat scroll 0 0 #D7D7D7!important;
+    background: none repeat scroll 0 0 #efefef !important;
 }
 .tb_multiple_column_upper tbody tr:nth-child(odd) {
-    background: none repeat scroll 0 0 #ECECEC!important;
+    background: none repeat scroll 0 0 #ECECEC !important;
 }
 .tb_multiple_column_upper td {
     border: 0 none;
@@ -170,8 +185,13 @@
 .osc-dialog .form-table input[type=radio] {
     margin: 0 6px 0 7px;
 }
-.osc-dialog .form-table, .osc-dialog .form-table td, .osc-dialog .form-table td p, .osc-dialog .form-table th, .osc-dialog .form-wrap label {
+.osc-dialog .form-table,
+.osc-dialog .form-table td,
+.osc-dialog .form-table td p,
+.osc-dialog .form-table th,
+.osc-dialog .form-wrap label {
     font-size: 12px;
+    border: 1px solid #e0e0e0;
 }
 #osc_show_icon {
     float: left;
@@ -194,6 +214,61 @@
 .osc-dialog .ui-dialog-titlebar {
     background: none repeat scroll 0 0 #292424 !important;
 }
-.osc-dialog{
-    z-index: 1000000 !important;
+/*.osc-dialog{*/
+    /*z-index: 1000000 !important;*/
+/*}*/
+
+
+#efs-popup > h2 {
+    background:#13A7C6;
+    border: 1px solid #0F95B3;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    border-radius: 3px;
+    color: #EAEFF1;
+    font-size: 15px;
+    font-weight: bold;
+    line-height: 20px;
+    margin: 0 0 10px;
+    padding: 5px 8px;
 }
+#efs-popup .mfp-close{
+    right: 4px;
+    top: 2px;
+    color: #FFFFFF;
+}
+#efs-popup .mfp-close{
+    color: #fff;
+}
+#oscitas-easy-bootstrap-shortcode-container .mfp-close{
+    right: 4px;
+    top: 2px;
+    color: #FFFFFF;
+}
+
+body.efsp-mf-shown .mfp-bg { z-index: 10000 !important; }
+body.efsp-mf-shown .mfp-wrap { z-index: 10001 !important; }
+body.efsp-mf-shown .mfp-preloader { z-index: 10002 !important; }
+body.efsp-mf-shown .mfp-content { z-index: 10003 !important; }
+body.efsp-mf-shown button.mfp-close,
+body.efsp-mf-shown button.mfp-arrow { z-index: 10004 !important; }
+
+
+
+#efs-popup{
+    padding: 10px;
+    position: relative;
+}
+
+#efs-popup .close-dialog {
+    background: none repeat scroll 0 0 #13A7C6;
+    border: 1px solid #0D768E;
+    border-radius: 3px;
+    box-shadow: 0 1px 0 0 #78DDF4 inset;
+    color: #FFFFFF;
+    padding: 3px 15px;
+    cursor: pointer;
+    margin: 0 5px;
+}
+

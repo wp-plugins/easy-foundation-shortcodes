@@ -7,12 +7,12 @@ if(efs_editor_opt=='dropdown'){
 
                 if(button == "oscitas_efs_main_dropdown_button"){
                     var current_object = this;
-                    var button = e.createSplitButton('osc_efsp_d_button', {
+                    var button = e.createSplitButton('osc_efs_d_button', {
                         title: "Easy Foundation Shortcode",
                         image: efs_url+'images/icon_dropdown.png',
                         icons: true,
                         role: 'presentation',
-                        "class": "osc_efsp_dropdown",
+                        "class": "osc_efs_dropdown",
                         onclick:function(){
                         }
                     });
@@ -53,7 +53,7 @@ if(efs_editor_opt=='dropdown'){
                 return null;
             },
             osc_element_call: function(ed, title, value,width,height){
-               var classt = 'osc_efsp_dropdown_item';
+               var classt = 'osc_efs_dropdown_item';
                 if(typeof(width)==='undefined') width = 'auto';
                 if(typeof(height)==='undefined') height = 'auto';
                 var prefix='oscitas';

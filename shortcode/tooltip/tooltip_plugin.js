@@ -8,7 +8,7 @@ var efstooltip={
 (function() {
     _efs_create_tinyMCE_options(efstooltip);
 })();
-function create_oscitas_efstooltip(pluginObj){
+function create_oscitas_efstooltip(pluginObj,dynamic){
     if(jQuery(pluginObj.hashId).length){
         jQuery(pluginObj.hashId).remove();
     }
@@ -59,7 +59,11 @@ function create_oscitas_efstooltip(pluginObj){
 			<input type="button" id="oscitas-tooltip-submit" class="button-primary" value="Insert Tooltip" name="submit" />\
 		</p>\
 		</div>');
-    form.appendTo('body').hide();
+    if(!dynamic){
+        form.appendTo('body').hide();
+    }else{
+        form=jQuery('.mfp-content');
+    }
     var table = form.find('table');
     var colors = ['color', 'bgcolor'];
 
@@ -72,8 +76,8 @@ function create_oscitas_efstooltip(pluginObj){
             table.find('#oscitas-tooltip-link').val('');
 
         }
-        jQuery('#oscitas-table tr:visible:even').css('background', '#F0F0F0');
-        jQuery('#oscitas-table tr:visible:odd').css('background', '#DADADD');
+        jQuery('#oscitas-table tr:visible:even').css('background', '#ffffff');
+        jQuery('#oscitas-table tr:visible:odd').css('background', '#efefef');
     })
 
     // handles the click event of the submit button
