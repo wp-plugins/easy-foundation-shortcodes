@@ -8,6 +8,7 @@ Stable tag: 2.0
 License: GPLv2 or later
 
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Donate link: http://oscitasthemes.com/support-our-free-plugins/
 
 Easy Foundation Shortcode enable you to add Zurb Foundation 5.0/4.0 styles in your pages, post and custom post in simplest manner, based on the settings you have done in the settings page.
 
