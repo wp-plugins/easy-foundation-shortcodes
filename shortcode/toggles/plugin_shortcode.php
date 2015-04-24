@@ -66,7 +66,7 @@ function osc_theme_efs_toggle($params, $content = null) {
             . do_shortcode($content) . '</p></div></section>';
     } else{
 
-        $_efs_oscitas_accordion[$index]['tabs'][] = '<dd><a href="#' . $pane_id . '">' . $title
+        $_efs_oscitas_accordion[$index]['tabs'][] = '<dd class="accordion-navigation"><a href="#' . $pane_id . '">' . $title
             . '</a><div class="content '. $active .'" id="'.$pane_id.'">'
             . do_shortcode(trim($content)) . '</div></dd>';
     }
